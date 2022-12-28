@@ -1,0 +1,57 @@
+.loginphoto {
+    height: auto;
+    width: 80%;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+.logincred{
+    height: auto;
+    width: 350px;
+    border: 2px solid rgb(206, 202, 202);
+    border-radius: 5px;
+    padding: 10px;
+
+}
+#tt{
+    text-align: left;
+}
+#tte{
+    margin-top: 13px;
+    font-weight: bold;
+    text-align: left;
+    float: left;
+}
+.buton{
+    border-radius: 5px;
+    background-color: #ec9ac7;
+    border: 1px solid rgb(228, 55, 202);
+    height: 38px;
+    width: 120px;
+    margin-top: 5px;
+    
+}
+.dividerline{
+    margin-top: 15px;
+    width: 75%;
+    color: linear-gradient(to right, #0000ff, #FFFFFF);
+}
+.signup{
+    
+    color: black;
+    text-decoration-line: none;
+    text-align: center;
+    width: 100%;
+    border-radius: 5px;
+    height: 35px;
+    margin-top: 5px;
+}
+.signupbuton{
+    height: auto;
+    width: 350px;
+    
+}
+.imgsize {
+    width: auto;
+    height: auto;
+    margin-bottom: 15px;
+}

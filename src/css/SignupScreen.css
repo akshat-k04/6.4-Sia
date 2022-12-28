@@ -1,0 +1,23 @@
+.imgsize{
+    width: 250px;
+    height: 50px;
+    margin-bottom: 15px;
+}
+.signupcred{
+    height: auto;
+    width: 350px;
+    border: 2px solid rgb(206, 202, 202);
+    border-radius: 5px;
+    padding: 10px;
+}
+.crtacc{
+    text-align: left;
+}
+.signupbtn{
+    width: 100%;
+    border-radius: 5px;
+    height: 35px;
+    background-color: #ec9ac7;
+    border: 1px solid rgb(228, 55, 202);
+    margin-top: 15px;
+}
