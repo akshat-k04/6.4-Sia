@@ -18,7 +18,7 @@ export default function Loginpg() {
 
 
           <label for="exampleFormControlInput1" id="tte" >Phone number</label>
-          <input type="phone" className="form-control " id="exampleFormControlInput1" placeholder="name@example.com" />
+          <input type="phone" className="form-control " id="exampleFormControlInput1" placeholder="9876543210" />
 
 
           <label id='tte' >password</label>
@@ -26,6 +26,7 @@ export default function Loginpg() {
 
 
           <button type='button' className="buton">submit</button>
+          <Link type='button' className="forgetpass" to="/">Forget Password</Link>
         </div>
       </div>
       <hr className='dividerline' />

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './../css/SignupScreen.css'
 
 export default function SignupScreen() {
@@ -28,12 +29,15 @@ export default function SignupScreen() {
 
 
 
-
-
-            <button type='button' className="signupbtn">submit</button>
+            <Link to="/auth/login">
+              <button type='button' className="signupbtn" href="">submit</button>
+            </Link>
+            
           </div>
       </div>
       <hr className='dividerline' />
+        <label >Already have an account?</label>
+        <Link className='lnk'  to="../auth/login">sign in</Link>
     </center>
     </>
   )

@@ -1,4 +1,5 @@
 import React from 'react'
+import './../css/navbar.css'
 import {
     Link
 } from "react-router-dom";
@@ -17,19 +18,19 @@ export default function Navbar() {
                               <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                           </li>
 
-                          <li className="nav-item">
-                              <Link className="nav-link" to="/">Link</Link>
-                          </li>
 
                           <li className="nav-item dropdown">
                               <Link className="nav-link dropdown-toggle" to="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                  Dropdown
+                                  Catagories
                               </Link>
                               <ul className="dropdown-menu">
-                                  <li><Link className="dropdown-item" to="/">Action</Link></li>
-                                  <li><Link className="dropdown-item" to="/">Another action</Link></li>
-                                  <li><hr className="dropdown-divider" /></li>
-                                  <li><Link className="dropdown-item" to="/">Something else here</Link></li>
+                                  <li><Link className="dropdown-item" to="/">Soaps</Link></li>
+                                  <li><Link className="dropdown-item" to="/">Shampoo</Link></li>
+                                  <li><Link className="dropdown-item" to="/">conditionar</Link></li>
+                                  <li><Link className="dropdown-item" to="/">Lipbaam</Link></li>
+                                  <li><Link className="dropdown-item" to="/">face cleanser</Link></li>
+                                  <li><Link className="dropdown-item" to="/">face cream</Link></li>
+                                  <li><Link className="dropdown-item" to="/">body cream</Link></li>
                               </ul>
 
                           </li>
@@ -39,9 +40,10 @@ export default function Navbar() {
 
                       <form className="d-flex" role="search">
                           <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                          <button className="btn btn-outline-success me-2" type="submit">Search</button>
+                          <button className="btn btn-outline-primary me-2" type="submit">Search</button>
                       </form>
                       <Link type="button" className="btn btn-outline-primary my-2" to="/auth/login">login</Link>
+                      <Link  ><img src='./assets/add-to-basket.png' className='iconcls' alt='.'></img></Link>
                   </div>
               </div>
           </nav>

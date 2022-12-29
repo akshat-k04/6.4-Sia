@@ -21,3 +21,7 @@
     border: 1px solid rgb(228, 55, 202);
     margin-top: 15px;
 }
+.lnk{
+    text-decoration-line: none;
+    color:rgb(228, 55, 202) ;
+}

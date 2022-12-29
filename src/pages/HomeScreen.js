@@ -5,11 +5,7 @@ import './../css/homescreen.css'
 export default function HomeScreen() {
   return (
     <>
-    <center>
-    <div className="homebox">
-        <p>hiii</p>
-    </div>
-    </center>
+    
     <Carousel/>
 
     <div className="row">
@@ -26,7 +22,11 @@ export default function HomeScreen() {
                   <Card />
               </div> 
     </div>
-    
+          <center>
+              <div className="homebox">
+                  <p>hiii</p>
+              </div>
+          </center>
     </>
   )
 }

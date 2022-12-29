@@ -37,7 +37,7 @@
 }
 .signup{
     
-    color: black;
+    color: rgb(228, 55, 202);
     text-decoration-line: none;
     text-align: center;
     width: 100%;
@@ -54,4 +54,11 @@
     width: auto;
     height: auto;
     margin-bottom: 15px;
+}
+
+.forgetpass{
+    width: 100%;
+    text-decoration-line: none;
+    color: rgb(228, 55, 202);
+    margin-top: 10px;
 }

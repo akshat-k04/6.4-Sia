@@ -4,7 +4,7 @@ export default function Card() {
   return (
     <>
           <div class="card w-100" >
-              <img src="/assets/tp.png" class="card-img-top"  width={10} alt="..."/>
+        <img src="" class="card-img-top"  width={10} alt="..."/>
                   <div class="card-body">
                       <h5 class="card-title">Card title</h5>
                       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>

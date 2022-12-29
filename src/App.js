@@ -1,4 +1,3 @@
-import './App.css';
 import Navbar from './components/navbar';
 import HomeScreen from './pages/HomeScreen';
 import {
@@ -8,7 +7,7 @@ import {
 } from "react-router-dom";
 import Loginpg from './pages/loginpg';
 import SignupScreen from './pages/SignupScreen';
-import './../custom/custom.css';
+import './custom.css';
 
 
 function App() {
