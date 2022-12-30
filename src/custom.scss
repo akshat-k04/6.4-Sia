@@ -1,6 +1,12 @@
 $theme-colors :(
     "primary" :  #ec9ac7,
-    "danger" : red
+    "danger" : red,
 );
+$custom-colors: (
+    "nv": rgba(128, 0, 128, 0.025)
+);
+
+// Merge the maps
+$theme-colors: map-merge($theme-colors, $custom-colors);
 @import "../node_modules/bootstrap/scss/bootstrap";
 

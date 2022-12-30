@@ -6,7 +6,7 @@ import {
 export default function Navbar() {
   return (
       <>
-          <nav className="navbar navbar-expand-lg bg-body-tertiary">
+          <nav className="navbar navbar-expand-lg bg-body-tertiary bg-nv">
               <div className="container-fluid">
                   <Link className="navbar-brand" to="/">Sia</Link>
                   <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,7 +43,8 @@ export default function Navbar() {
                           <button className="btn btn-outline-primary me-2" type="submit">Search</button>
                       </form>
                       <Link type="button" className="btn btn-outline-primary my-2" to="/auth/login">login</Link>
-                      <Link to={("dd"=="")?'/auth/signup':'/auth/login'}  ><img src='./assets/add-to-basket.png' className='iconcls' alt='.'></img></Link>
+                      <Link to={("dd"=="")?'/auth/signup':'/basket'}  ><img src='./assets/add-to-basket.png' className='iconcls' alt='.'></img></Link>
+                      <Link to={("dd" == "") ? '/auth/signup' : '/profile'}  ><img src='./assets/add-to-basket.png' className='iconcls' alt='.'></img></Link>
                   </div>
               </div>
           </nav>

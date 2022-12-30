@@ -1,13 +1,13 @@
 import React from 'react'
 import { useState } from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './../css/SignupScreen.css'
 
 
 
 
 export default function SignupScreen() {
-  
+  const navigate = useNavigate() ;
   const [phone, updatephone] = useState("");
   const [nme, updatename] = useState("");
   const [password, updatepassword] = useState("");
@@ -70,8 +70,13 @@ export default function SignupScreen() {
       });
 
       const rs = await res.json() ;
-      console.log(rs.bol);
-      
+      if(rs.bol==true){
+        window.alert('horraae!');
+        navigate('/auth/login') ;
+      }
+      else{
+        window.alert('user already exist') ;
+      }
     }
     else{
       upd(true);
@@ -106,9 +111,7 @@ export default function SignupScreen() {
 
 
 
-            <Link to={(password === conpassword && password.length !== 0 && nme.length !== 0 && phone.length === 10) ? "/auth/login" :  null}>
               <button type='button' onClick={ sender } className="signupbtn" href="">submit</button>
-            </Link>
             
           </div>
       </div>

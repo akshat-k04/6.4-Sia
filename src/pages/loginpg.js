@@ -1,16 +1,15 @@
 import React, { useState } from 'react'
 import './../css/loginpage.css'
 import {
-  Link
+  Link, useNavigate
 } from "react-router-dom";
 
 
 
 export default function Loginpg() {
-
+  const navigate = useNavigate() ;
   const [phone , updatephone] = useState("") ;
   const[password ,updatepassword] =useState("") ;
-  const[booler , updat] = useState(false) ;
   function runphone(e){
     updatephone(e.target.value) ;
   }
@@ -18,9 +17,34 @@ export default function Loginpg() {
     updatepassword(e.target.value) ;
   }
 
-  function checkinfo(){
+  async function checkinfo(){
     //write this in if conditiion
-    updat(true) ;
+
+
+    let dataset = ({
+      phone:phone ,
+      password:password
+    })
+
+
+    let res = await fetch("/auth/login", {
+      method: "POST",
+      body: JSON.stringify(dataset),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+    let getdata = await res.json() ;
+    if(getdata.bol == "success"){
+      window.alert('login successfully') ;
+      navigate('/');
+    }
+    else if(getdata.bol=="fail"){
+      window.alert('wrong password') ;
+    }
+    else{
+      alert('user not exist') ;
+    }
   }
 
   return (
@@ -40,11 +64,9 @@ export default function Loginpg() {
           <label id='tte' >password</label>
           <input type="password" className="form-control" onClick={runpassword} id="inputPassword2" placeholder="Password"></input>
 
-          <Link to={(booler)?"/":null}>
-            <button type='button' onClick=
-            {checkinfo} className="buton">submit</button>
-          </Link>
-          <Link type='button' className="forgetpass" to="/">Forget Password</Link>
+            <button type='button' onClick={checkinfo} className="buton">submit</button>
+
+          <Link type='button' className="forgetpass" to="/auth/forgetpassword">Forget Password</Link>
         </div>
       </div>
       <hr className='dividerline' />
