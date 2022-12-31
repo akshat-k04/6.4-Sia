@@ -11,14 +11,14 @@ import './custom.css';
 import ProfilePage from './pages/ProfilePage';
 import CartPage from './pages/CartPage';
 import Forgetpassword from './pages/Forgetpassword';
+import Phonestate from './context/phoneState';
 
 
 function App() {
-  
 
   return (
     
-      
+    <Phonestate>
       <Router>
         <Navbar />
         <Routes>
@@ -30,6 +30,7 @@ function App() {
         <Route path='/basket' element={<CartPage/>}/>
         </Routes>
       </Router>
+    </Phonestate>
     
   );
 }

@@ -3,6 +3,7 @@ import Card from '../components/Card'
 import Carousel from '../components/Carousel'
 import './../css/homescreen.css'
 export default function HomeScreen() {
+
   return (
     <>
     

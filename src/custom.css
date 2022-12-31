@@ -31,10 +31,10 @@
   --bs-gray-900: #212529;
   --bs-primary: #ec9ac7;
   --bs-danger: red;
-  --bs-nv: rgba(128, 0, 128, 0.025);
+  --bs-nv: rgba(22, 6, 22, 0.025);
   --bs-primary-rgb: 236, 154, 199;
   --bs-danger-rgb: 255, 0, 0;
-  --bs-nv-rgb: 128, 0, 128;
+  --bs-nv-rgb: 22, 6, 22;
   --bs-white-rgb: 255, 255, 255;
   --bs-black-rgb: 0, 0, 0;
   --bs-body-color-rgb: 33, 37, 41;
@@ -2921,19 +2921,19 @@ textarea.form-control-lg {
 
 .btn-nv {
   --bs-btn-color: #fff;
-  --bs-btn-bg: rgba(128, 0, 128, 0.025);
-  --bs-btn-border-color: rgba(128, 0, 128, 0.025);
+  --bs-btn-bg: rgba(22, 6, 22, 0.025);
+  --bs-btn-border-color: rgba(22, 6, 22, 0.025);
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: rgba(9, 0, 9, 0.17125);
-  --bs-btn-hover-border-color: rgba(6, 0, 6, 0.22);
-  --bs-btn-focus-shadow-rgb: 247, 238, 247;
+  --bs-btn-hover-bg: rgba(1, 0, 1, 0.17125);
+  --bs-btn-hover-border-color: rgba(1, 0, 1, 0.22);
+  --bs-btn-focus-shadow-rgb: 239, 238, 239;
   --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: rgba(6, 0, 6, 0.22);
-  --bs-btn-active-border-color: rgba(5, 0, 5, 0.26875);
+  --bs-btn-active-bg: rgba(1, 0, 1, 0.22);
+  --bs-btn-active-border-color: rgba(1, 0, 1, 0.26875);
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   --bs-btn-disabled-color: #fff;
-  --bs-btn-disabled-bg: rgba(128, 0, 128, 0.025);
-  --bs-btn-disabled-border-color: rgba(128, 0, 128, 0.025);
+  --bs-btn-disabled-bg: rgba(22, 6, 22, 0.025);
+  --bs-btn-disabled-border-color: rgba(22, 6, 22, 0.025);
 }
 
 .btn-outline-primary {
@@ -2971,19 +2971,19 @@ textarea.form-control-lg {
 }
 
 .btn-outline-nv {
-  --bs-btn-color: rgba(128, 0, 128, 0.025);
-  --bs-btn-border-color: rgba(128, 0, 128, 0.025);
+  --bs-btn-color: rgba(22, 6, 22, 0.025);
+  --bs-btn-border-color: rgba(22, 6, 22, 0.025);
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: rgba(128, 0, 128, 0.025);
-  --bs-btn-hover-border-color: rgba(128, 0, 128, 0.025);
-  --bs-btn-focus-shadow-rgb: 128, 0, 128;
+  --bs-btn-hover-bg: rgba(22, 6, 22, 0.025);
+  --bs-btn-hover-border-color: rgba(22, 6, 22, 0.025);
+  --bs-btn-focus-shadow-rgb: 22, 6, 22;
   --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: rgba(128, 0, 128, 0.025);
-  --bs-btn-active-border-color: rgba(128, 0, 128, 0.025);
+  --bs-btn-active-bg: rgba(22, 6, 22, 0.025);
+  --bs-btn-active-border-color: rgba(22, 6, 22, 0.025);
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  --bs-btn-disabled-color: rgba(128, 0, 128, 0.025);
+  --bs-btn-disabled-color: rgba(22, 6, 22, 0.025);
   --bs-btn-disabled-bg: transparent;
-  --bs-btn-disabled-border-color: rgba(128, 0, 128, 0.025);
+  --bs-btn-disabled-border-color: rgba(22, 6, 22, 0.025);
   --bs-gradient: none;
 }
 
@@ -4546,12 +4546,12 @@ textarea.form-control-lg {
 }
 
 .alert-nv {
-  --bs-alert-color: rgba(1, 0, 1, 0.61);
-  --bs-alert-bg: rgba(255, 254, 255, 0.805);
+  --bs-alert-color: rgba(0, 0, 0, 0.61);
+  --bs-alert-bg: rgba(254, 254, 254, 0.805);
   --bs-alert-border-color: rgba(254, 254, 254, 0.7075);
 }
 .alert-nv .alert-link {
-  color: rgba(1, 0, 1, 0.688);
+  color: rgba(0, 0, 0, 0.688);
 }
 
 @-webkit-keyframes progress-bar-stripes {
@@ -4883,17 +4883,17 @@ textarea.form-control-lg {
 }
 
 .list-group-item-nv {
-  color: rgba(1, 0, 1, 0.61);
-  background-color: rgba(255, 254, 255, 0.805);
+  color: rgba(0, 0, 0, 0.61);
+  background-color: rgba(254, 254, 254, 0.805);
 }
 .list-group-item-nv.list-group-item-action:hover, .list-group-item-nv.list-group-item-action:focus {
-  color: rgba(1, 0, 1, 0.61);
-  background-color: rgba(219, 218, 219, 0.8245);
+  color: rgba(0, 0, 0, 0.61);
+  background-color: rgba(218, 218, 218, 0.8245);
 }
 .list-group-item-nv.list-group-item-action.active {
   color: #fff;
-  background-color: rgba(1, 0, 1, 0.61);
-  border-color: rgba(1, 0, 1, 0.61);
+  background-color: rgba(0, 0, 0, 0.61);
+  border-color: rgba(0, 0, 0, 0.61);
 }
 
 .btn-close {
@@ -6465,7 +6465,7 @@ textarea.form-control-lg {
 
 .text-bg-nv {
   color: #fff !important;
-  background-color: RGBA(128, 0, 128, var(--bs-bg-opacity, 1)) !important;
+  background-color: RGBA(22, 6, 22, var(--bs-bg-opacity, 1)) !important;
 }
 
 .link-primary {
@@ -6483,10 +6483,10 @@ textarea.form-control-lg {
 }
 
 .link-nv {
-  color: rgba(128, 0, 128, 0.025) !important;
+  color: rgba(22, 6, 22, 0.025) !important;
 }
 .link-nv:hover, .link-nv:focus {
-  color: rgba(6, 0, 6, 0.22) !important;
+  color: rgba(1, 0, 1, 0.22) !important;
 }
 
 .ratio {

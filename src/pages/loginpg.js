@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import phoneContext from '../context/phoneContext'
 import './../css/loginpage.css'
 import {
   Link, useNavigate
@@ -6,12 +7,24 @@ import {
 
 
 export default function Loginpg() {
+  const a = useContext(phoneContext) ;
   const navigate = useNavigate() ;
   const [phone , updatephone] = useState() ;
   const[password ,updatepassword] =useState() ;
+  const [goahea, goer] = useState(false) ;
+
+
+  useEffect(() => {
+    a.func( phone,goahea);
+   console.log(goahea);
+    {(goahea===true)?navigate('/'):console.log('hii')} ;
+  },[goahea])
+
+
 
   function rnphone(e){
     updatephone(e.target.value) ;
+    
     //console.log(phone);
 
   }
@@ -21,9 +34,9 @@ export default function Loginpg() {
 
   }
 
+  
   async function checkino(){
-    //write this in if conditiion
-
+    
     //console.log(phone+password);
     
 
@@ -38,18 +51,22 @@ export default function Loginpg() {
       }
     });
     let getdata = await res.json() ;
-    console.log(getdata.bol);
-    console.log(password);
+    // console.log(getdata.bol);
+    // console.log(password);
     if(getdata.bol == "success"){
-      window.alert('login successfully') ;
       
-      navigate('/');
+      //console.log(goahead+goahead);
+     window.alert('login successfully') ;
+      goer(true);
+
     }
     else if(getdata.bol=="fail"){
       window.alert('wrong password') ;
+      goer(false) ;
     }
     else{
       alert('user not exist') ;
+      goer(false) ;
     }
   }
 
