@@ -25,3 +25,9 @@
     text-decoration-line: none;
     color:rgb(228, 55, 202) ;
 }
+/* .signupbtn:after{
+    background-color: blue;
+} */
+.signupbtn:hover {
+    background-color: blue;
+}

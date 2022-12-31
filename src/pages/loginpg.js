@@ -5,38 +5,44 @@ import {
 } from "react-router-dom";
 
 
-
 export default function Loginpg() {
   const navigate = useNavigate() ;
-  const [phone , updatephone] = useState("") ;
-  const[password ,updatepassword] =useState("") ;
-  function runphone(e){
+  const [phone , updatephone] = useState() ;
+  const[password ,updatepassword] =useState() ;
+
+  function rnphone(e){
     updatephone(e.target.value) ;
+    //console.log(phone);
+
   }
-  function runpassword(e){
+  function rnpassword(e){
     updatepassword(e.target.value) ;
+    //console.log(password);
+
   }
 
-  async function checkinfo(){
+  async function checkino(){
     //write this in if conditiion
 
-
-    let dataset = ({
-      phone:phone ,
-      password:password
-    })
-
+    //console.log(phone+password);
+    
 
     let res = await fetch("/auth/login", {
       method: "POST",
-      body: JSON.stringify(dataset),
+      body: JSON.stringify({
+        phone: phone,
+        password: password
+}),
       headers: {
         "Content-Type": "application/json"
       }
     });
     let getdata = await res.json() ;
+    console.log(getdata.bol);
+    console.log(password);
     if(getdata.bol == "success"){
       window.alert('login successfully') ;
+      
       navigate('/');
     }
     else if(getdata.bol=="fail"){
@@ -58,13 +64,13 @@ export default function Loginpg() {
 
 
           <label  id="tte" >Phone number</label>
-          <input type="phone" className="form-control " onChange={runphone} id="exampleFormControlInput1" placeholder="9876543210" />
+          <input type="phone" className="form-control "  onChange={rnphone} id="exampleFormControlInput1" placeholder="9876543210" />
 
 
           <label id='tte' >password</label>
-          <input type="password" className="form-control" onClick={runpassword} id="inputPassword2" placeholder="Password"></input>
+          <input type="password" className="form-control" onInput={rnpassword}  placeholder="Password"></input>
 
-            <button type='button' onClick={checkinfo} className="buton">submit</button>
+            <button type='button' onClick={checkino} className="buton">submit</button>
 
           <Link type='button' className="forgetpass" to="/auth/forgetpassword">Forget Password</Link>
         </div>

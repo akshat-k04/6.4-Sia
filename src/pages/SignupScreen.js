@@ -24,6 +24,7 @@ export default function SignupScreen() {
   }
   function runphone(e) {
     updatephone(e.target.value);
+    console.log(phone);
     if (sendr === true) {
       upd(false);
     }
