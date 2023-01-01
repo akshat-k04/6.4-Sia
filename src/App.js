@@ -12,6 +12,7 @@ import ProfilePage from './pages/ProfilePage';
 import CartPage from './pages/CartPage';
 import Forgetpassword from './pages/Forgetpassword';
 import Phonestate from './context/phoneState';
+import ProfileState from './context/userProfileState';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
   return (
     
     <Phonestate>
+      <ProfileState>
       <Router>
         <Navbar />
         <Routes>
@@ -30,6 +32,7 @@ function App() {
         <Route path='/basket' element={<CartPage/>}/>
         </Routes>
       </Router>
+      </ProfileState>
     </Phonestate>
     
   );

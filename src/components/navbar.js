@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './../css/navbar.css'
 import {
     Link
 } from "react-router-dom";
+import phoneContext from '../context/phoneContext';
+import profileContext from '../context/userProfileContext';
 export default function Navbar() {
+    const a = useContext(phoneContext) ;
+    const b = useContext(profileContext) ;
+    // const navigate = useNavigate() ;
+    function signout(){
+        a.func("" , false) ;
+        b.func("") ;
+    }
   return (
       <>
           <nav className="navbar navbar-expand-lg bg-body-tertiary bg-nv">
@@ -42,9 +51,9 @@ export default function Navbar() {
                           <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                           <button className="btn btn-outline-primary me-2" type="submit">Search</button>
                       </form>
-                      <Link type="button" className="btn btn-outline-primary my-2" to="/auth/login">login</Link>
-                      <Link to={("dd"=="")?'/auth/signup':'/basket'}  ><img src='./assets/add-to-basket.png' className='iconcls' alt='.'></img></Link>
-                      <Link to={("dd" == "") ? '/auth/signup' : '/profile'}  ><img src='./assets/add-to-basket.png' className='iconcls' alt='.'></img></Link>
+                      <Link type="button" className="btn btn-outline-primary my-2" onClick={signout} to={(a.phone.showDetails) ? "/": "/auth/login"}>{(a.phone.showDetails) ? "sign out" :"login"}</Link>
+                      <Link to={(!a.phone.showDetails)?'/auth/login':'/basket'}  ><img src='./assets/add-to-basket.png' className='iconcls' alt='.'></img></Link>
+                      <Link to={(!a.phone.showDetails) ? '/auth/login' : '/profile'}  ><img src='./assets/add-to-basket.png' className='iconcls' alt='.'></img></Link>
                   </div>
               </div>
           </nav>
