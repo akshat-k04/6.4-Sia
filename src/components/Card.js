@@ -2,14 +2,14 @@ import React, {useState, useEffect,useContext} from 'react'
 import itemContext from '../context/itemContext';
 import { useNavigate
 } from "react-router-dom";
-// import phoneContext from '../context/phoneContext';
+ import phoneContext from '../context/phoneContext';
 
 
 
 
 export default function Card(props) {
   const b = useContext(itemContext);
-  // const c = useContext(phoneContext);
+   const c = useContext(phoneContext);
   const [img, setImg] = useState();
   const nevigate = useNavigate() ;
   useEffect(() => {async function fc() {
@@ -30,6 +30,35 @@ export default function Card(props) {
   } fc();
   }, []);
 
+
+    async function addToCart() {
+      if(c.phone.number.length===10){
+        let dataset = {
+          'phone': c.phone.number,
+          'quantity': 1,
+          'id':props.id
+        }
+        let res = await fetch("http://localhost:3000/orders/addToCart", {
+          method: "POST",
+          body: JSON.stringify(dataset),
+          headers: {
+            "Content-Type": "application/json"
+          }
+        });
+        let obj = await res.json();
+        if (obj.bol == 'true') {
+          alert('done');
+        }
+        else {
+          alert('already added');
+        }
+      }
+      else {
+        nevigate('/auth/login');
+      }
+
+    }
+  
   function navigateit(){
     // if(c.phone.number.length===10){
       b.funct(props.id, props.name, props.quantity, props.price, props.description, props.type, props.imageurl);
@@ -48,7 +77,7 @@ export default function Card(props) {
                   <div className="card-body">
                       <h5 className="card-title">{props.name}</h5>
                       <p className="card-text">{props.description}</p>
-                      <a onClick={navigateit} className="btn btn-primary">{props.price}</a>
+                      <a onClick={addToCart} className="btn btn-primary">{props.price}/-</a>
                   </div>
           </div>
     </>

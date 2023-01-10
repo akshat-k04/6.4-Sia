@@ -1,11 +1,12 @@
 import React,{useContext,useState ,useEffect} from 'react'
+import { useNavigate } from 'react-router-dom';
 import itemContext from '../context/itemContext';
 import phoneContext from '../context/phoneContext';
 import './../css/productinfo.css'
 export default function ProductInfo() {
     const b = useContext(itemContext);
     const a = useContext(phoneContext);
-
+    const navigate = useNavigate() ;
     const [img, setImg] = useState();
     useEffect(() => {
         //console.log(b.itemInfo);
@@ -29,18 +30,30 @@ export default function ProductInfo() {
 
 
     async function addtoCart(){
-        let dataset = {
-            'phone': a.phone.number,
-            'quantity':1,
-            'id': b.itemInfo.id
-        }
-        let res = await fetch("http://localhost:3000/auth/signup", {
-            method: "POST",
-            body: JSON.stringify(dataset),
-            headers: {
-                "Content-Type": "application/json"
+        if(a.phone.number.length===10){
+            let dataset = {
+                'phone': a.phone.number,
+                'quantity': 1,
+                'id': b.itemInfo.id
             }
-        });
+            let res = await fetch("http://localhost:3000/orders/addToCart", {
+                method: "POST",
+                body: JSON.stringify(dataset),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+            let obj = await res.json();
+            if (obj.bol == 'true') {
+                alert('done');
+            }
+            else {
+                alert('already added');
+            }
+        }
+        else {
+            navigate('/auth/login') ;
+        }
 
     }
 
