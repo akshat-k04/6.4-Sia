@@ -1,0 +1,53 @@
+.lftside{
+    float: left;
+    width:35% ;
+    padding-right: 1px;
+}
+.rgtside{
+    float: right;
+    width:65% ;
+}
+.photo{
+    float: left;
+    width: 100%;
+    height: auto;
+    margin: 1px;
+    
+    /* margin-top: 1px; */
+}
+.name{
+    width: 65%;
+}
+.butn{
+
+            border-radius: 5px;
+            background-color: #ec9ac7;
+            border: 1px solid rgb(228, 55, 202);
+            height: 50px;
+            width: 130px;
+            margin-top: 5px;
+    
+    align-self: center;
+}
+
+@media screen and (max-width:600px) {
+    .rgtside{
+        width:100% ;
+        
+    }
+        .lftside {
+            width: 100%;
+            
+        }
+    .butn {
+    
+            border-radius: 50px;
+            background-color: #ec9ac7;
+            border: 1px solid rgb(228, 55, 202);
+            height: 50px;
+            width: 130px;
+            margin-top: 5px;
+    
+            align-self: center;
+        }
+}

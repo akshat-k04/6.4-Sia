@@ -18,7 +18,7 @@ export default function ProfilePage() {
   }
 
   async function updat(){
-    let res = await fetch("/auth/forgetPassword", {
+    let res = await fetch("http://localhost:3000/auth/forgetPassword", {
       method: "POST",
       body: JSON.stringify({
         phone: phone,
@@ -43,16 +43,16 @@ export default function ProfilePage() {
           <h2  id="hding">User Profile</h2>
           <div className="mb-3">
 
-
+{console.log(b.name)}
             <label id="titl" >Name</label>
-            <input type="name" className="form-control "  id="exampleFormControlInput1" placeholder="akshat" value={b.name} disabled/>
+            <input type="name" className="form-control "  id="exampleFormControlInput1" placeholder="name" value={b.name} disabled/>
 
             <label id="titl" >Phone Number</label>
             <input type="phone" className="form-control " id="exampleFormControlInput1" placeholder="number" value={b.phone} disabled/>
 
 
             <label id="titl" >Address</label>
-            <input type="address" className="form-control " onChange={inputadd} value={address} id="exampleFormControlInput1" placeholder="123, agra ,indore" />
+            <input type="address" className="form-control " onChange={inputadd} value={address} id="exampleFormControlInput1" placeholder="address" />
 
 
 
@@ -66,7 +66,7 @@ export default function ProfilePage() {
       </center>
         <div className="container-sm my-3 ">
           <div className='orderhaed'><h1>Order History</h1></div>
-          <table class="table bg-primary">
+          <table className="table bg-primary">
             <thead>
               <tr>
                 <th scope="col">#</th>
@@ -90,7 +90,7 @@ export default function ProfilePage() {
               </tr>
               <tr>
                 <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
+                <td colSpan="2">Larry the Bird</td>
                 <td>@twitter</td>
               </tr>
             </tbody>

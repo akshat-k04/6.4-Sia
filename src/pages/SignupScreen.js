@@ -62,7 +62,7 @@ export default function SignupScreen() {
       console.log(password);
       console.log(JSON.stringify(dataset ));
 
-      let res = await fetch("/auth/signup",{
+      let res = await fetch("http://localhost:3000/auth/signup",{
         method:"POST" ,
         body: JSON.stringify(dataset),
         headers: {

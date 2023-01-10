@@ -53,7 +53,7 @@ export default function Navbar() {
                       </form>
                       <Link type="button" className="btn btn-outline-primary my-2" onClick={signout} to={(a.phone.showDetails) ? "/": "/auth/login"}>{(a.phone.showDetails) ? "sign out" :"login"}</Link>
                       <Link to={(!a.phone.showDetails)?'/auth/login':'/basket'}  ><img src='./assets/add-to-basket.png' className='iconcls' alt='.'></img></Link>
-                      <Link to={(!a.phone.showDetails) ? '/auth/login' : '/profile'}  ><img src='./assets/add-to-basket.png' className='iconcls' alt='.'></img></Link>
+                      <Link to={(!a.phone.showDetails) ? '/auth/login' : '/profile'}  ><img src='./assets/profile.png' className='iconcls' alt='.'></img></Link>
                   </div>
               </div>
           </nav>

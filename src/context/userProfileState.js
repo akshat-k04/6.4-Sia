@@ -8,7 +8,7 @@ const ProfileState = (props) => {
     const [zip,upzip]=useState("") ;
 
     async function func(phon) {
-        let res = await fetch("/auth/getdata", {
+        let res = await fetch("http://localhost:3000/auth/getdata", {
             method: "POST",
             body: JSON.stringify({"phone":phon}),
             headers: {

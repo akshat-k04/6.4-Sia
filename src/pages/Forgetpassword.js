@@ -26,7 +26,7 @@ export default function Forgetpassword() {
         })
 
 
-        let res = await fetch("/auth/userchecker", {
+        let res = await fetch("http://localhost:3000/auth/userchecker", {
             method: "POST",
             body: JSON.stringify(dataset),
             headers: {

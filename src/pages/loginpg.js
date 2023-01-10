@@ -40,7 +40,7 @@ export default function Loginpg() {
     //console.log(phone+password);
     
 
-    let res = await fetch("/auth/login", {
+    let res = await fetch("http://localhost:3000/auth/login", {
       method: "POST",
       body: JSON.stringify({
         phone: phone,
