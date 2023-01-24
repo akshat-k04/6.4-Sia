@@ -1,11 +1,12 @@
-import React, { useState ,useEffect } from 'react'
-import {
-  useNavigate
-} from "react-router-dom";
+import React, { useState, useEffect } from 'react'
+// import {
+//   useNavigate
+// } from "react-router-dom";
 export default function CartRow(props) {
-    const navigate= useNavigate();
-    const [ob , setobj] = useState("") ;
-    const [quant, setquant] = useState(props.quantity) ;
+    // const navigate= useNavigate();
+    const [ob, setobj] = useState("");
+    const [quant, setquant] = useState(props.quantity);
+
     useEffect(() => {
         // console.log(props.id);
         async function fc() {
@@ -22,44 +23,69 @@ export default function CartRow(props) {
 
             let gh = await data.json();
             setobj(gh);
-            
+
         } fc();
     }, []);
 
-    async function deleteit(){
+    async function deleteit() {
         await fetch("http://localhost:3000/orders/delete",
             {
                 method: "POST",
                 body: JSON.stringify({
                     "id": props.id,
-                    "phone":props.phone
+                    "phone": props.phone
                 }),
                 headers: {
                     "Content-Type": "application/json"
                 }
             });
-            console.log('done');
+        console.log('done');
         window.location.reload();
+        console.log('refreshed');
     }
 
 
-    function runner(event){
-        
-       setquant(event.target.value) ;
-        
-    }
-  return (
-    <>
-          
+    async function runner(event) {
 
-          <tr>
-              <th scope="row"><img className='image'onClick={deleteit} src='./assets/dustbin.png'></img></th>
-              <td>{(ob==null)?null:ob.name} </td>
-              <td>{(ob == null) ? null : ob.id}</td>
-              <td>{(ob == null) ? null : ob.price}</td>
-              <td><input type="number"  onChange={runner} className='quantity' value={quant}></input></td>
-              <td>{(ob == null) ? null : String(parseInt(ob.price) * parseInt(quant))}</td>
-          </tr>
-    </>
-  )
+        if (event.target.value.length >= 1) {
+            setquant(event.target.value);
+
+            if (parseInt(event.target.value) <= 0) {
+                deleteit();
+            }
+            else {
+                await fetch("http://localhost:3000/orders/update",
+                    {
+                        method: "POST",
+                        body: JSON.stringify({
+                            "id": props.id,
+                            "phone": props.phone,
+                            "quantity": event.target.value
+                        }),
+                        headers: {
+                            "Content-Type": "application/json"
+                        }
+                    });
+            }
+        }
+        else {
+            setquant(0);
+        }
+
+
+    }
+    return (
+        <>
+
+
+            <tr >
+                <th scope="row"><img className='image' onClick={deleteit} src='./assets/dustbin.png'></img></th>
+                <td>{(ob == null) ? null : ob.name} </td>
+                <td>{(ob == null) ? null : ob.id}</td>
+                <td>{(ob == null) ? null : ob.price}</td>
+                <td><input type="number" onChange={runner} className='quantity' value={quant}></input></td>
+                <td>{(ob == null) ? null : String(parseInt(ob.price) * parseInt(quant))}</td>
+            </tr>
+        </>
+    )
 }

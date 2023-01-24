@@ -1,11 +1,14 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import profileContext from '../context/userProfileContext';
+import phoneContext from '../context/phoneContext'
 import './../css/profile.css'
+import OrdersCard from '../components/OrdersCard';
 // import {
 //   Link
 // } from "react-router-dom";
 export default function ProfilePage() {
   const b = useContext(profileContext);
+  const a = useContext(phoneContext) ;
   const[address ,upadd] =useState(b.address) ;
   const[zip ,upzip] = useState(b.zip) ;
   const phone = b.phone ;
@@ -16,6 +19,17 @@ export default function ProfilePage() {
   function inzip(e){
     upzip(e.target.value) ;
   }
+
+
+  useEffect(()=>{
+    if (localStorage.getItem('phone') != null) {
+      a.func(localStorage.getItem('phone'), true);
+      b.func(localStorage.getItem('phone'));
+      // navigate('/');
+
+    }
+  },[])
+
 
   async function updat(){
     let res = await fetch("http://localhost:3000/auth/forgetPassword", {
@@ -38,12 +52,12 @@ export default function ProfilePage() {
 
     <>
     
-<center>
+      <center>
         <div className="profileContainer">
           <h2  id="hding">User Profile</h2>
           <div className="mb-3">
 
-{console.log(b.name)}
+            {/* {upadd(b.address)} */}
             <label id="titl" >Name</label>
             <input type="name" className="form-control "  id="exampleFormControlInput1" placeholder="name" value={b.name} disabled/>
 
@@ -52,12 +66,12 @@ export default function ProfilePage() {
 
 
             <label id="titl" >Address</label>
-            <input type="address" className="form-control " onChange={inputadd} value={address} id="exampleFormControlInput1" placeholder="address" />
+            <input type="address" className="form-control " onChange={inputadd} value={(zip== null||zip.length==0)?b.address:address} id="exampleFormControlInput1" placeholder="address" />
 
-
+{/* {console.log(b.previousOrders)} */}
 
             <label id="titl" >ZipCode</label>
-            <input type="zip" className="form-control " onChange={inzip} value={zip} id="exampleFormControlInput1" placeholder="452005" />
+            <input type="zip" className="form-control " onChange={inzip} value={(zip==null||zip.length==0)?b.zip:zip} id="exampleFormControlInput1" placeholder="452005" />
 
             {(phone === "") ? <button type='button' onClick={updat} className="buton" disabled>Update</button> : <button type='button' onClick={updat} className="buton">Update</button>}
 
@@ -66,33 +80,20 @@ export default function ProfilePage() {
       </center>
         <div className="container-sm my-3 ">
           <div className='orderhaed'><h1>Order History</h1></div>
-          <table className="table bg-primary">
+        <table className="table  table-bordered">
             <thead>
-              <tr>
+              <tr className='table-primary'>
                 <th scope="col">#</th>
-                <th scope="col">Items</th>
+                <th scope="col">OrderId</th>
                 <th scope="col">Order Date</th>
                 <th scope="col">status</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td colSpan="2">Larry the Bird</td>
-                <td>@twitter</td>
-              </tr>
+            {(b.previousOrders==null)?null:Object.keys(b.previousOrders).map((element) => {
+              return <OrdersCard key={b.previousOrders[element].orderId} order={b.previousOrders[element]} num={element}/>
+            })}
+            
             </tbody>
           </table>
         </div>
@@ -101,8 +102,7 @@ export default function ProfilePage() {
 
 
 
-      
-
+          
     </>
   )
 }

@@ -15,10 +15,14 @@ import Phonestate from './context/phoneState';
 import ProfileState from './context/userProfileState';
 import ProductInfo from './pages/ProductInfo';
 import Itemstate from './context/itemState';
+import OrderSummery from './pages/OrderSummery';
+import SuccessPage from './pages/successPage';
+import AwaitPage from './pages/AwaitPage';
 
 
 function App() {
 
+  
   return (
     
     <Phonestate>
@@ -33,7 +37,10 @@ function App() {
         <Route path='/auth/forgetpassword' element={<Forgetpassword />} />
         <Route path='/profile' element={<ProfilePage/>}/>
         <Route path='/basket' element={<CartPage/>}/>
+        <Route path='/orderSummery' element={<OrderSummery />} />
         <Route path='/productInfo' element={<ProductInfo />} />
+        <Route path='/successPage' element={<SuccessPage />} />
+        <Route path='/await' element={<AwaitPage />} />
         </Routes>
       </Router>
       </ProfileState>

@@ -12,6 +12,7 @@ export default function Navbar() {
     function signout(){
         a.func("" , false) ;
         b.func("") ;
+        localStorage.clear() ;
     }
   return (
       <>

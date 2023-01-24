@@ -9,7 +9,7 @@ import { useNavigate
 
 export default function Card(props) {
   const b = useContext(itemContext);
-   const c = useContext(phoneContext);
+  const c = useContext(phoneContext);
   const [img, setImg] = useState();
   const nevigate = useNavigate() ;
   useEffect(() => {async function fc() {
@@ -36,7 +36,8 @@ export default function Card(props) {
         let dataset = {
           'phone': c.phone.number,
           'quantity': 1,
-          'id':props.id
+          'id':props.id,
+          'price':props.price
         }
         let res = await fetch("http://localhost:3000/orders/addToCart", {
           method: "POST",

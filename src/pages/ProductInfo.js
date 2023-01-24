@@ -34,7 +34,8 @@ export default function ProductInfo() {
             let dataset = {
                 'phone': a.phone.number,
                 'quantity': 1,
-                'id': b.itemInfo.id
+                'id': b.itemInfo.id,
+                'price':b.itemInfo.price
             }
             let res = await fetch("http://localhost:3000/orders/addToCart", {
                 method: "POST",

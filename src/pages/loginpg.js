@@ -1,4 +1,4 @@
-import React, { useContext,  useState } from 'react'
+import React, { useContext,  useState,useEffect } from 'react'
 import phoneContext from '../context/phoneContext'
 import './../css/loginpage.css'
 import {
@@ -14,11 +14,7 @@ export default function Loginpg() {
   const [phone , updatephone] = useState() ;
   const[password ,updatepassword] =useState() ;
 
-  // useEffect(() => {
-  //   a.func( phone,goahea);
-  //  console.log(goahea);
-  //   {(goahea===true)?navigate('/'):console.log('hii')} ;
-  // },[goahea])
+  
 
 
 
@@ -56,6 +52,7 @@ export default function Loginpg() {
     if(getdata.bol == "success"){
       a.func(phone,true) ;
       b.func(phone) ;
+      localStorage.setItem('phone',phone) ;
       //console.log(goahead+goahead);
      window.alert('login successfully') ;
       navigate('/')
