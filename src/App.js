@@ -19,6 +19,7 @@ import OrderSummery from './pages/OrderSummery';
 import SuccessPage from './pages/successPage';
 import AwaitPage from './pages/AwaitPage';
 import Catastate from './context/catagoryState';
+import Footer from './components/Footer';
 // import Catagory from './pages/catagory';
 
 
@@ -32,6 +33,8 @@ function App() {
       <ProfileState>
       <Router>
         <Navbar />
+              
+
         <Routes>
         <Route  path='/' element={<HomeScreen/>}/>
         <Route path='/auth/login' element={<Loginpg/>} />
@@ -46,6 +49,7 @@ function App() {
         {/* <Route path='/catagory' element={<Catagory />} /> */}
 
         </Routes>
+        <Footer />
       </Router>
       </ProfileState>
       </Itemstate>

@@ -9,7 +9,6 @@ import Carousel from '../components/Carousel'
 import './../css/homescreen.css'
 import cataContext from '../context/catagoryContext';
 import EmptyPage from './EmptyPage';
-import Navbar from '../components/navbar';
 export default function HomeScreen() {
     const [article, settate]= useState({});
     const a = useContext(phoneContext);
@@ -38,7 +37,7 @@ export default function HomeScreen() {
     } fc();},[cata.query]);
     
   return (
-    <>
+    <div className='home'>
     
     <Carousel/>
 
@@ -50,16 +49,8 @@ export default function HomeScreen() {
                   </div>
               })}
               
-              
-
-
         
+                </div>
     </div>
-          <center>
-              <div className="homebox">
-                  <p>hiii</p>
-              </div>
-          </center>
-    </>
   )
 }
