@@ -1,6 +1,7 @@
 import React, { useContext,useEffect,useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 import CartRow from '../components/CartRow';
+import Navbar from '../components/navbar';
 import phoneContext from '../context/phoneContext'
 import profileContext from '../context/userProfileContext';
 import './../css/cartpage.css'

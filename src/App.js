@@ -18,13 +18,15 @@ import Itemstate from './context/itemState';
 import OrderSummery from './pages/OrderSummery';
 import SuccessPage from './pages/successPage';
 import AwaitPage from './pages/AwaitPage';
+import Catastate from './context/catagoryState';
+// import Catagory from './pages/catagory';
 
 
 function App() {
 
   
   return (
-    
+    <Catastate>
     <Phonestate>
       <Itemstate>
       <ProfileState>
@@ -41,12 +43,14 @@ function App() {
         <Route path='/productInfo' element={<ProductInfo />} />
         <Route path='/successPage' element={<SuccessPage />} />
         <Route path='/await' element={<AwaitPage />} />
+        {/* <Route path='/catagory' element={<Catagory />} /> */}
+
         </Routes>
       </Router>
       </ProfileState>
       </Itemstate>
     </Phonestate>
-    
+    </Catastate>
   );
 }
 export default App;

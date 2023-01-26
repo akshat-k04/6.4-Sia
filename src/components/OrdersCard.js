@@ -56,6 +56,10 @@ export default function OrdersCard(props) {
                   <td scope='row' colSpan={3}>delivery type</td>
                   <td>{props.order.delivery}</td>
                 </tr>
+                <tr>
+                  <td scope='row' colSpan={3}>payment mode</td>
+                  <td>{props.order.payment}</td>
+                </tr>
               </tbody>
             </table>
             {/* <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> */}

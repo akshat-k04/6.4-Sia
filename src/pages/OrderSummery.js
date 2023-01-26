@@ -49,7 +49,7 @@ export default function OrderSummery() {
             "productDetails": details ,
             "delivery":orderType ,
             "payment":payMode ,
-            "status": (payMode=="COD")?"takeAway":"payment apporoval pending",
+            "status": (payMode=="COD")?"YOUR ORDER WILL BE READY SHORTLY":"payment apporoval pending",
             "date":`${fgb}`,
             "grandTotal": subval
         }

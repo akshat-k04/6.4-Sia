@@ -1,18 +1,32 @@
 import React, { useContext } from 'react'
 import './../css/navbar.css'
 import {
-    Link
+    Link, 
 } from "react-router-dom";
 import phoneContext from '../context/phoneContext';
 import profileContext from '../context/userProfileContext';
+import cataContext from '../context/catagoryContext';
 export default function Navbar() {
     const a = useContext(phoneContext) ;
     const b = useContext(profileContext) ;
+    const cata = useContext(cataContext) ;
+    // const navigate = useNavigate();
     // const navigate = useNavigate() ;
     function signout(){
         a.func("" , false) ;
         b.func("") ;
         localStorage.clear() ;
+    }
+    async function sortit(e){
+        let catagory= e.target.value ;
+        cata.func(catagory) ;
+        // if(e.target.value=="catagory"){
+        //     navigate("/");
+
+        // }
+        // else{
+        // navigate("/catagory") ;
+        // }
     }
   return (
       <>
@@ -27,37 +41,52 @@ export default function Navbar() {
                           <li className="nav-item">
                               <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                           </li>
+                          <select className="form-select bg-nv " defaultValue="catagory" onChange={sortit} aria-label="Default select example">
+                              <option value="catagory" >catagory</option>
+                              <option value="soap">soap</option>
+                              <option value="shampoo">shampoo</option>
+                              <option value="conditionar">conditionar</option>
+                              <option value="lipbalm">lipbalm</option>
+                              <option value="face cleanser">face cleanser</option>
+                              <option value="face cream">face cream</option>
+                              <option value="body cream">body cream</option>
 
+                          </select>
 
-                          <li className="nav-item dropdown">
+                          {/* <li className="nav-item dropdown">
                               <Link className="nav-link dropdown-toggle" to="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                   Catagories
                               </Link>
                               <ul className="dropdown-menu">
-                                  <li><Link className="dropdown-item" to="/">Soaps</Link></li>
-                                  <li><Link className="dropdown-item" to="/">Shampoo</Link></li>
-                                  <li><Link className="dropdown-item" to="/">conditionar</Link></li>
-                                  <li><Link className="dropdown-item" to="/">Lipbaam</Link></li>
-                                  <li><Link className="dropdown-item" to="/">face cleanser</Link></li>
-                                  <li><Link className="dropdown-item" to="/">face cream</Link></li>
-                                  <li><Link className="dropdown-item" to="/">body cream</Link></li>
+                                  <li value="soaps">Soaps</li>
+                                  <li value="shampoo">Shampoo</li>
+                                  <li value="conditionar">conditionar</li>
+                                  <li value="lipbalm">Lipbalm</li>
+                                  <li value="face cleanser">face cleanser</li>
+                                  <li value="face cream">face cream</li>
+                                  <li value="body cream">body cream</li>
                               </ul>
 
-                          </li>
+                          </li> */}
 
 
                       </ul>
 
-                      <form className="d-flex" role="search">
+                      {/* <form className="d-flex" role="search">
                           <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                           <button className="btn btn-outline-primary me-2" type="submit">Search</button>
-                      </form>
+                      </form> */}
                       <Link type="button" className="btn btn-outline-primary my-2" onClick={signout} to={(a.phone.showDetails) ? "/": "/auth/login"}>{(a.phone.showDetails) ? "sign out" :"login"}</Link>
                       <Link to={(!a.phone.showDetails)?'/auth/login':'/basket'}  ><img src='./assets/add-to-basket.png' className='iconcls' alt='.'></img></Link>
                       <Link to={(!a.phone.showDetails) ? '/auth/login' : '/profile'}  ><img src='./assets/profile.png' className='iconcls' alt='.'></img></Link>
                   </div>
               </div>
           </nav>
+          
+
+          {/* new */}
+
+          
       </>
   )
 }
