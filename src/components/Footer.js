@@ -4,7 +4,9 @@ import './../css/footer.css' ;
 export default function Footer() {
   return (
     <>
+    
           <div className="section footer-classNameic context-dark bg-footer text-white" >
+              <div className="space" ></div>
               <div className="container">
                   <div className="row row-30">
                       <div className="col-md-4 col-xl-5">

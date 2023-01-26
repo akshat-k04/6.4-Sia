@@ -62,9 +62,10 @@ export default function ProductInfo() {
 
   return (
     <>
+    <div className="combo">
         <div className="lftside">
             <img src={img} className="photo" alt='sc'></img>
-            <button onClick={addtoCart} className='butn'>add to cart</button>
+            
         </div>
         <div className="rgtside">
           <div className="name"><h1>{b.itemInfo.name}</h1></div>
@@ -76,7 +77,10 @@ export default function ProductInfo() {
           <br />
           <h2>Product Details</h2>
           <div className="description">{b.itemInfo.description}</div>
+          <button onClick={addtoCart} className='butn'>add to cart</button>
         </div>
+        </div>
+    
     </>
   )
 }

@@ -3,3 +3,18 @@
   margin-bottom: 10px;
   margin-left: 10px;
 }
+.pr{
+  
+   /* padding-right: 0px;
+    border-right-width: 0px;
+    border-top-width: 0px;
+    border-left-width: 00px;
+    border-bottom-width: 00px; */
+    border-bottom-width: 0px!important;
+      border-right-width: 0px!important;
+      border-top-width: 00px!important;
+      border-left-width: 00px!important;
+      border-right-width: 0px!important;
+      padding-right: 0px!important;
+      padding-left: 0px!important;
+}

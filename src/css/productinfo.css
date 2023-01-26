@@ -6,6 +6,7 @@
 .rgtside{
     float: right;
     width:65% ;
+    padding: 20px;
 }
 .photo{
     float: left;
@@ -30,6 +31,10 @@
     align-self: center;
 }
 
+.combo{
+    width: 100%;
+    min-height: 750px;
+}
 @media screen and (max-width:600px) {
     .rgtside{
         width:100% ;

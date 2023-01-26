@@ -50,10 +50,10 @@ export default function ProfilePage() {
   }
   return (
 
-    <>
+    <div className='allprofile '>
     
       <center>
-        <div className="profileContainer">
+        <div className="profileContainer ">
           <h2  id="hding">User Profile</h2>
           <div className="mb-3">
 
@@ -103,6 +103,6 @@ export default function ProfilePage() {
 
 
           
-    </>
+    </div>
   )
 }
