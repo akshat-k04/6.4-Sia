@@ -1,12 +1,12 @@
-.outer{
+/* .outer{
     background-color: #ffffff;
         width:600px ;
         border-radius: 15px;
         height: 100px;
-        /* margin: 10px; */
-}
+         margin: 10px; 
+ } 
 .img{
-    /* padding: 5px; */
+    padding: 5px; 
     height: 50px;
     width: 85px;
     margin-top: 20px;
@@ -23,12 +23,13 @@
 }
 .info{
     height: 60px;
+   width: 200px; 
     margin-left: 135px;
     margin-top: 20px;
     margin-bottom: 20px;
     background-color: brown;
     width: 200px;
-}
+} 
 .right{
     /* padding-left: 20px;
     padding-right: 20px;
@@ -36,7 +37,7 @@
     padding-bottom: 25px; */
     /* float: right; */
     /* background-color: bisque; */
-}
+/* } */
 
 .sc{
     width: 75px;
@@ -45,7 +46,7 @@
 .operation{
     height: 50px;
     width: 150px;
-
+    margin-top: 24px;
 }
 .numbr{
     border: 1px solid black;
@@ -59,3 +60,31 @@
 .dlt{
     margin-top: 12.5px;
 }
+.col1{
+    height: 100px;
+}
+.container-fluid1{
+    display: inline-block;
+}
+.container-fluid1 .row{
+    width: 500px;
+    background-color: #ffffff;
+    text-align: center;
+}
+.img{
+    padding: 5px; 
+    height: 50px;
+    width: 85px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    background-color: aqua;
+}
+.info{
+    height: 60px;
+    width: 200px; 
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: brown;
+    width: 200px;
+} 
