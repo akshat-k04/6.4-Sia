@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import CartPageCart from '../components/CartPageCart';
 import CartRow from '../components/CartRow';
 import Navbar from '../components/navbar';
 import phoneContext from '../context/phoneContext'
@@ -50,13 +51,29 @@ export default function CartPage() {
     <>
       {/* {fc() } */}
       <div className="mainBox">
-        <h1 >Shoping Cart</h1>
-        <div className="shoping">
-          {/* <div className='underline'><hr /></div> */}
+        <h1 >Shopping Cart</h1>
+        
+          <div className='underline'><hr /></div>
+        {/* {(obj == null) ? null : Object.keys(obj).map((element) => {
+          return <CartPageCart key={obj[element].id} id={obj[element].id} quantity={obj[element].quantity} phone={obj[element].phone} />
+        })} */}
+        <button type="button" onClick={sender} className="btn btn-primary">Next</button>
+        
+        
+        <CartPageCart />
 
-          <table className="table  table-bordered">
+
+      </div>
+    </>
+  )
+}
+
+
+
+
+{/* <table className="table bg-white table-bordered">
             <thead>
-              <tr className='table-primary'>
+              <tr className='bg-head'>
                 <th scope="col">Drop</th>
                 <th scope="col">Product</th>
                 <th className="hidden-mobile" scope="col">Product Id</th>
@@ -66,7 +83,6 @@ export default function CartPage() {
               </tr>
             </thead>
             <tbody>
-              {/* {console.log((obj == null) ? null : Object.keys(obj))} */}
 
               {(obj == null) ? null : Object.keys(obj).map((element) => {
                 return <CartRow key={obj[element].id} id={obj[element].id} quantity={obj[element].quantity} phone={obj[element].phone} />
@@ -74,11 +90,4 @@ export default function CartPage() {
             </tbody>
           </table>
 
-          {(obj == null || obj.length == 0) ? <center><h5>cart is empty</h5></center> : null}
-        </div>
-        <button type="button" onClick={sender} className="btn btn-primary">Next</button>
-
-      </div>
-    </>
-  )
-}
+          {(obj == null || obj.length == 0) ? <center><h5>cart is empty</h5></center> : null} */}

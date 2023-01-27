@@ -46,12 +46,11 @@ export default function CartRow(props) {
     }
 
 
-    async function runner(event) {
+    async function runnerr() {
 
-        if (event.target.value.length >= 1) {
-            setquant(event.target.value);
+        setquant(parseInt(quant) - 1);
 
-            if (parseInt(event.target.value) <= 0) {
+            if (quant-1 <= 0) {
                 deleteit();
             }
             else {
@@ -61,30 +60,49 @@ export default function CartRow(props) {
                         body: JSON.stringify({
                             "id": props.id,
                             "phone": props.phone,
-                            "quantity": event.target.value
+                            "quantity": parseInt(quant)-1
                         }),
                         headers: {
                             "Content-Type": "application/json"
                         }
                     });
             }
-        }
-        else {
-            setquant(0);
-        }
 
+
+    }
+    async function runnerp() {
+
+        setquant(parseInt(quant) + 1);
+        // console.log(parseInt(quant) + 1);
+
+       
+            await fetch("http://localhost:3000/orders/update",
+                {
+                    method: "POST",
+                    body: JSON.stringify({
+                        "id": props.id,
+                        "phone": props.phone,
+                        "quantity": parseInt(quant)  + 1
+                    }),
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                });
 
     }
     return (
         <>
 
-
-            <tr className='table-warning'>
-                <th scope="row"><span className="material-symbols-outlined " onClick={deleteit}>delete</span></th>
+            {/* <input type="number" onChange={runner} className='quantity ' value={quant}></input> */}
+            <tr className='rowing'>
+                <th scope="row"><span className="material-symbols-outlined" onClick={deleteit}>delete</span></th>
                 <td>{(ob == null) ? null : ob.name} </td>
                 <td className="hidden-mobile">{(ob == null) ? null : ob.id}</td>
                 <td>{(ob == null) ? null : ob.price}</td>
-                <td><input type="number" onChange={runner} className='quantity ' value={quant}></input></td>
+                <td> {quant}
+                    <span onClick={runnerr} className="material-symbols-outlined">remove</span>
+                    <span onClick={runnerp} className="material-symbols-outlined">add</span>
+                </td>
                 <td className="tot">{(ob == null) ? null : String(parseInt(ob.price) * parseInt(quant))}</td>
             </tr>
         </>

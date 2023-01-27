@@ -1,13 +1,15 @@
 $theme-colors :(
     "primary" :  #000000,
     "danger" : red,
-    "success":green
+    "success":green,
+    "warning":#fff2c9,
 );
 $custom-colors: (
     "nv" : #000000,//#2d3246,//#5B8FB9,// #5B8FB9 ,
     "footer": #000000,//#2d3246
                 //#2d3246
     "cartpg":#d3d3d3e8,
+    "head":#525053
 );
 
 // Merge the maps
