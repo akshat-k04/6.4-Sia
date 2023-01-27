@@ -40,8 +40,8 @@ export default function HomeScreen() {
     <div className='home'>
     
     <Carousel/>
-
-              <div className='row'>
+    <center>
+              <div className='row cardrow'>
               {(article.length==0)?<EmptyPage/>:Object.keys(article).map((element) => {
                   return <div className='col-md-4 my-3' key={article[element].id}>
                       {/* {console.log(article[element])} */}
@@ -51,6 +51,7 @@ export default function HomeScreen() {
               
         
                 </div>
+          </center>
     </div>
   )
 }

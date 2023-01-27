@@ -3,17 +3,20 @@ import itemContext from '../context/itemContext';
 import { useNavigate
 } from "react-router-dom";
  import phoneContext from '../context/phoneContext';
-
-
+import "./../css/card.css"
 
 
 export default function Card(props) {
   const b = useContext(itemContext);
   const c = useContext(phoneContext);
+  let desci = props.description ;
   const [img, setImg] = useState();
   const nevigate = useNavigate() ;
   useEffect(() => {async function fc() {
     //console.log(props.imageurl);
+    
+
+
     let data = await fetch("http://localhost:3000/owner/findimg", 
     { method: "POST", 
       body: JSON.stringify({
@@ -73,12 +76,13 @@ export default function Card(props) {
 
   return (
     <>
-          <div className="card w-100" >
+          <div className="card mx-5 my-3">
         <img src={img} className="card-img-top" onClick={navigateit}  alt={props.id}/>
                   <div className="card-body">
-                      <h5 className="card-title">{props.name}</h5>
-                      <p className="card-text">{props.description}</p>
-                      <a onClick={addToCart} className="btn btn-primary">{props.price}/-</a>
+                      <h4 className="card-title">{props.name}</h4>
+                      <p  className="card-text">{(desci.length>140)?desci.slice(0,139)+"...":desci}</p>
+                      <p className='price'>{props.price}/-</p>
+                      <a onClick={addToCart} className="addbtn btn btn-primary">Add To Cart</a>
                   </div>
           </div>
     </>

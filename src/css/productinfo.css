@@ -1,58 +1,157 @@
 .lftside{
     float: left;
-    width:35% ;
-    padding-right: 1px;
+    width: 450px;
 }
 .rgtside{
-    float: right;
-    width:65% ;
-    padding: 20px;
+    /* float: right; */
+    width:auto ;
+    padding-left: 20px;
 }
 .photo{
+    border-radius: 5px;
     float: left;
-    width: 100%;
+    width: 400px;
     height: auto;
-    margin: 1px;
+    /* margin: 1px; */
     
     /* margin-top: 1px; */
 }
-.name{
+/* .name{
     width: 65%;
-}
+} */
 .butn{
 
             border-radius: 5px;
-            background-color: #ec9ac7;
-            border: 1px solid rgb(228, 55, 202);
+            background-color: #000000;
             height: 50px;
             width: 130px;
             margin-top: 5px;
-    
-    align-self: center;
+            color: white;
+            align-self: center;
 }
 
 .combo{
     width: 100%;
     min-height: 750px;
+    background-color:#d3d3d3e8 ;
+    padding: 5% ;
 }
-@media screen and (max-width:600px) {
-    .rgtside{
-        width:100% ;
-        
+.containe{
+   background-color: white;
+    border-radius: 20px;
+    height: 500px;
+    padding: 3.5%;
+}
+
+
+@media screen and (max-width:1292px) {
+    .containe {
+            background-color: white;
+            border-radius: 20px;
+            height: 550px;
+            padding: 3.5%;
+        }
+}
+@media screen and (max-width:1000px) {
+    .containe {
+        background-color: white;
+        border-radius: 20px;
+        height: 700px;
+        padding: 3.5%;
     }
-        .lftside {
-            width: 100%;
-            
-        }
-    .butn {
-    
-            border-radius: 50px;
-            background-color: #ec9ac7;
-            border: 1px solid rgb(228, 55, 202);
-            height: 50px;
-            width: 130px;
-            margin-top: 5px;
-    
+}
+@media screen and (max-width:675px) {
+    .containe {
+        background-color: white;
+        border-radius: 20px;
+        height: 1000px;
+        padding: 3.5%;
+    }
+
+    .combo {
+        width: 100%;
+        /* min-height: 750px; */
+        background-color: #d3d3d3e8;
+        padding: 5%;
+    }
+
+    .rgtside {
+        width: 100%;
+
+    }
+
+    .lftside {
+        width: 100%;
+
+    }
+
+}
+@media screen and (max-width:487px) {
+    .photo {
+            border-radius: 5px;
+            /* float: left; */
             align-self: center;
+            width: 300px;
+            height: auto;
+            /* margin: 1px; */
+    
+            /* margin-top: 1px; */
         }
+    .containe {
+        background-color: white;
+        border-radius: 20px;
+        height: 1000px;
+        padding: 3.5%;
+    }
+
+    .combo {
+        width: 100%;
+        /* min-height: 750px; */
+        background-color: #d3d3d3e8;
+        padding: 5%;
+    }
+
+    .rgtside {
+        width: 100%;
+
+    }
+
+    .lftside {
+        width: 100%;
+
+    }
+
+}
+@media screen and (max-width:363px) {
+    .photo {
+        border-radius: 5px;
+        width: 250px;
+        height: auto;
+        /* margin: 1px; */
+        /* margin-top: 1px; */
+    }
+
+    .containe {
+        background-color: white;
+        border-radius: 20px;
+        height: 1050px;
+        padding: 3.5%;
+    }
+
+    .combo {
+        width: 100%;
+        /* min-height: 750px; */
+        background-color: #d3d3d3e8;
+        padding: 5%;
+    }
+
+    .rgtside {
+        width: 100%;
+    }
+
+    .lftside {
+        width: 100%;
+
+    }
+
 }

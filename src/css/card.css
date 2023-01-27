@@ -1,0 +1,24 @@
+.card,.card-img-top{
+    border-radius: 20px !important;
+    
+}
+/* .card{
+    /* width: 320px !important; */
+
+.price{
+    font-weight: bold;
+}
+.addbtn{
+    width: 130px !important;
+    height: 45px !important;
+    border-radius: 5px !important;
+    align-self: center;
+}
+
+@media screen and (min-width:1133px){
+    .card-text {
+        height: 80px;
+    }
+}
+
+

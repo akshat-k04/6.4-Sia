@@ -6,6 +6,16 @@
 
 }
 .home{
-    background-color: #ffffff ;
+    background-color:#d3d3d3e8 ;
     /* rgba(243, 179, 214, 0.733); */
+}
+
+@media screen and (min-width:1236px) {
+    .cardrow {
+            padding-left: 5%;
+            padding-right: 5%;
+            padding-bottom: 5%;
+            padding-top: 3%;
+    
+        }
 }

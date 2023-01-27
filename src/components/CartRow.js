@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import "./../css/cartpage.css"
 // import {
 //   useNavigate
 // } from "react-router-dom";
@@ -78,13 +79,13 @@ export default function CartRow(props) {
         <>
 
 
-            <tr >
-                <th scope="row"><img className='image' onClick={deleteit} src='./assets/dustbin.png'></img></th>
+            <tr className='table-warning'>
+                <th scope="row"><span className="material-symbols-outlined " onClick={deleteit}>delete</span></th>
                 <td>{(ob == null) ? null : ob.name} </td>
-                <td>{(ob == null) ? null : ob.id}</td>
+                <td className="hidden-mobile">{(ob == null) ? null : ob.id}</td>
                 <td>{(ob == null) ? null : ob.price}</td>
-                <td><input type="number" onChange={runner} className='quantity' value={quant}></input></td>
-                <td>{(ob == null) ? null : String(parseInt(ob.price) * parseInt(quant))}</td>
+                <td><input type="number" onChange={runner} className='quantity ' value={quant}></input></td>
+                <td className="tot">{(ob == null) ? null : String(parseInt(ob.price) * parseInt(quant))}</td>
             </tr>
         </>
     )

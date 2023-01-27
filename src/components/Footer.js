@@ -49,8 +49,8 @@ export default function Footer() {
                   </div>
               </div>
               <center className="row no-gutters social-container ">
-                  <div class="col"><Link class="social-inner" href="#"><span class="icon mdi mdi-instagram"></span><span>instagram</span></Link></div>
-                  <div class="col"><Link class="social-inner" href="#"><span class="icon mdi mdi-google"></span><span>Google Form For UPI</span></Link></div>
+                  <div className="col"><a className="social-inner" href="https://www.instagram.com/sia__cosmetics__/?next=%2Fsia_world_2305%2F"><span className="icon mdi mdi-instagram"></span><span>instagram</span></a></div>
+                  <div className="col"><Link className="social-inner" href="#"><span className="icon mdi mdi-google"></span><span>Google Form For UPI</span></Link></div>
 
               </center>
           </div>
