@@ -49,8 +49,8 @@ export default function ProfilePage() {
     }
   }
   return (
-
-    <div className='allprofile '>
+    <div className="gh">
+    <div className='allprofile'>
     
       <center>
         <div className="profileContainer ">
@@ -68,7 +68,7 @@ export default function ProfilePage() {
             <label id="titl" >Address</label>
             <input type="address" className="form-control " onChange={inputadd} value={(zip== null||zip.length==0)?b.address:address} id="exampleFormControlInput1" placeholder="address" />
 
-{/* {console.log(b.previousOrders)} */}
+          {/* {console.log(b.previousOrders)} */}
 
             <label id="titl" >ZipCode</label>
             <input type="zip" className="form-control " onChange={inzip} value={(zip==null||zip.length==0)?b.zip:zip} id="exampleFormControlInput1" placeholder="452005" />
@@ -78,7 +78,7 @@ export default function ProfilePage() {
           </div>
         </div>
       </center>
-        <div className="container-sm my-3 ">
+        <div className="container my-3 ">
           <div className='orderhaed'><h1>Order History</h1></div>
         <table className="table  table-bordered">
             <thead>
@@ -102,7 +102,7 @@ export default function ProfilePage() {
 
 
 
-          
+      </div>
     </div>
   )
 }

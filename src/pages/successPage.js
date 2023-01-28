@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import './../css/success.css'
 
 export default function SuccessPage() {
     const navigate = useNavigate();
@@ -8,7 +9,7 @@ export default function SuccessPage() {
     }
   return (
     <>
-    <center>
+    <center className='tp'>
               <h3 className="font-monospace fw-bold">Woo-Hoo! Order Successfully placed</h3>
               <h5>please collect your order from 257,HI-link extension,Chota Bangarda, indore(452005)</h5>
               <div>

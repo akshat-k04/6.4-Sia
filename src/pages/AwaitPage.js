@@ -1,15 +1,16 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import './../css/success.css'
 
 export default function AwaitPage() {
     const navigate = useNavigate() ;
     
   return (
       <>
-          <center>
+          <center className='tpt'>
               <h3 className="font-monospace fw-bold">scan the qr code to pay</h3>
               <div>
-                  <img height={"250"} width={"250"} src="./assets/siaLogo.jpg"></img>
+                  <img height={"250"} width={"250"} src="./assets/siaQRcode.jpg"></img>
               </div>
               <center><h6>NOTE:- please fill the google form within 2 hrs after doing the payment.</h6></center>
 

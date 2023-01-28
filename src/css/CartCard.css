@@ -1,61 +1,105 @@
-.outer{
+.container-sm{
     background-color: #ffffff;
         width:600px ;
         border-radius: 15px;
         height: 100px;
+        /* display: inline-block; */
         /* margin: 10px; */
 }
-.ok{
+/* .empty{
     background-color: aqua;
+} */
+.infoCol{
+    /* background-color: blueviolet; */
+    padding-left: 0px ;
+
 }
-.by{
-    background-color: blueviolet;
-}
-.hi{
-    background-color: yellow;
-}
+
 .img{
     height: 50px;
-    width: 85px;
+    width: 75px;
     margin-top: 20px;
     /* margin-left: 20px; */
     margin-bottom: 20px;
     /* background-color: aqua; */
 }
-.left{
-    /* background-color: blueviolet; */
-    margin-left: 0px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    height: 100px;
-}
+
 .info{
     height: 60px;
     margin-top: 20px;
     margin-bottom: 20px;
+    margin-left: 0px !important;
     /* background-color: brown; */
-    width: 200px;
-}
-
-
-.sc{
-    width: 75px;
-    height: 50px;
-}
-.operation{
-    height: 50px;
     width: 150px;
-
 }
+
+.pric{
+    margin: 0px;
+    padding: 0px;
+}
+
+
 .numbr{
     border: 1px solid black;
-    
+    margin-top: 25px;
+    margin-bottom: 25px;
     height: 50px;
-    width:120px ;
+    width:170px ;
     padding: 12.5px;
     border-radius: 8px;
+    position: relative;
+    right: -40px;
 }
 
-.dlt{
-    margin-top: 12.5px;
+
+.dlt,.rm{
+   
+    float: left;
+
+}
+.add{
+    float: right;
+}
+
+@media screen and (max-width:786px) {
+    .empty {
+        width: 0px;        }
+        .container-sm{
+            width: 375px;
+        }
+        .numbr{
+            width: 150px;
+            position: relative;
+                right: 20px;
+        }
+        .quantCol{
+            padding-right: 0px;
+        }
+}
+@media screen and (max-width:394px) {
+    .numbr{
+        width: 120px;
+        margin-right: 0px !important;
+    }
+        .container-sm {
+            width: 325px;
+        }
+}
+
+@media screen and (max-width:383px) {
+    .img{
+        /* display: none; */
+        width: 50px;
+        height: 37.5px;
+        margin-top: 32px;
+    }
+    .infoCol{
+        position: relative;
+        left: -30px;
+    }
+}
+@media screen and (max-width:383px) {
+    .container-sm {
+            width: 300px;
+        }
 }

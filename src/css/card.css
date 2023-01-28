@@ -9,6 +9,8 @@
     font-weight: bold;
 }
 .addbtn{
+    background-color: black;
+    color: #ffffff;
     width: 130px !important;
     height: 45px !important;
     border-radius: 5px !important;

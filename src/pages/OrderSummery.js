@@ -2,7 +2,7 @@ import React,{useEffect, useContext,useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 import phoneContext from '../context/phoneContext'
 import profileContext from '../context/userProfileContext';
-import './../css/cartpage.css'
+import './../css/OrderSummery.css'
 
 
 
@@ -33,6 +33,10 @@ export default function OrderSummery() {
         let details = [] ;
         let indi ;
         let fgb = Date().toString().slice(4, 15);
+        if(subval==null|| subval==0){
+            alert("cart is empty") ;
+        }
+        else {
         Object.keys(data).map((e) => {
             indi = {
                 "id": data[e].id,
@@ -44,12 +48,12 @@ export default function OrderSummery() {
         })
         
         let info ={
-            "orderId": `${ localStorage.getItem('phone')}${ Date().toString() }`,
+            "orderId": `${ localStorage.getItem('phone')}${ Date().toString().slice(1,24) }`,
             "phone": `${localStorage.getItem('phone') }` ,
             "productDetails": details ,
             "delivery":orderType ,
             "payment":payMode ,
-            "status": (payMode=="COD")?"YOUR ORDER WILL BE READY SHORTLY":"payment apporoval pending",
+            "status": (payMode == "COD") ?"your order will be ready shortly":"payment apporoval pending",
             "date":`${fgb}`,
             "grandTotal": subval
         }
@@ -85,6 +89,7 @@ export default function OrderSummery() {
         else{
             navigate("/await") ;
         }
+    }
     }
     useEffect(()=>{
         if (localStorage.getItem('phone') != null) {
@@ -129,7 +134,7 @@ export default function OrderSummery() {
                           <th scope="col">Product Id</th>
                           <th scope="col">Price</th>
                           <th scope="col">Quantity</th>
-                          <th scope='col'>Total</th>
+                          <th className='tot' scope='col'>Total</th>
                       </tr>
                   </thead>
                   <tbody>
@@ -141,7 +146,7 @@ export default function OrderSummery() {
                               <td>{data[e].id}</td>
                               <td>{data[e].price}</td>
                               <td>{data[e].quantity}</td>
-                              <td>{parseInt(data[e].quantity) * parseInt(data[e].price)}</td>
+                              <td className='tot'>{parseInt(data[e].quantity) * parseInt(data[e].price)}</td>
                           </tr>
                       })}
                   </tbody>

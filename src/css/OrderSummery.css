@@ -1,0 +1,13 @@
+.shoping{
+    padding: 35px;
+    /* background-color: #d3d3d3e8; */
+}
+.btn{
+    width: 100px !important;
+}
+
+@media screen and (max-width:395px) {
+    .tot{
+        display: none;
+    }
+}

@@ -82,7 +82,7 @@ export default function Card(props) {
                       <h4 className="card-title">{props.name}</h4>
                       <p  className="card-text">{(desci.length>140)?desci.slice(0,139)+"...":desci}</p>
                       <p className='price'>{props.price}/-</p>
-                      <a onClick={addToCart} className="addbtn btn btn-primary">Add To Cart</a>
+                      <button onClick={addToCart} className="addbtn ">Add To Cart</button>
                   </div>
           </div>
     </>

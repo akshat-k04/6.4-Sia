@@ -22,7 +22,7 @@ export default function OrdersCard(props) {
         </tr>
           {(showDetails)?<tr>
             <td colSpan={4}>
-          <div className="alert alert-primary alert-dismissible fade show" role="alert">
+          <div className="alert bg-white  show" role="alert">
             <table className="table">
               <thead>
                 <tr>

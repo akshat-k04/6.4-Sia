@@ -1,8 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import CartPageCart from '../components/CartPageCart';
-import CartRow from '../components/CartRow';
-import Navbar from '../components/navbar';
 import phoneContext from '../context/phoneContext'
 import profileContext from '../context/userProfileContext';
 import './../css/cartpage.css'
@@ -54,13 +52,18 @@ export default function CartPage() {
         <h1 >Shopping Cart</h1>
         
           <div className='underline'><hr /></div>
-        {/* {(obj == null) ? null : Object.keys(obj).map((element) => {
-          return <CartPageCart key={obj[element].id} id={obj[element].id} quantity={obj[element].quantity} phone={obj[element].phone} />
-        })} */}
+        {/* <div className='row cardrow'> */}
+        {(obj == null || obj.length==0) ? <h4>cart is empty</h4> : Object.keys(obj).map((element) => {
+          // return <div className='col-6 mx  my-0.1' key={obj[element].id}>
+          return <CartPageCart id={obj[element].id} key={obj[element].id} quantity={obj[element].quantity} phone={obj[element].phone} />
+          // </div>
+        })}
+        {/* </div> */}
         <button type="button" onClick={sender} className="btn btn-primary">Next</button>
         
         
-        <CartPageCart />
+        
+
 
 
       </div>

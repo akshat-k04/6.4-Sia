@@ -1,51 +1,126 @@
-import React from 'react'
+import React ,{useState,useEffect }from 'react'
 import './../css/CartCard.css'
-export default function CartPageCart() {
+export default function CartPageCart(props) {
+    const [ob, setobj] = useState("");
+    const [quant, setquant] = useState(props.quantity);
+
+    useEffect(() => {
+        // console.log(props.id);
+        async function fc() {
+            let data = await fetch("http://localhost:3000/owner/detail",
+                {
+                    method: "POST",
+                    body: JSON.stringify({
+                        "id": props.id
+                    }),
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                });
+
+            let gh = await data.json();
+            setobj(gh);
+
+        } fc();
+    }, []);
+
+    async function deleteit() {
+        await fetch("http://localhost:3000/orders/delete",
+            {
+                method: "POST",
+                body: JSON.stringify({
+                    "id": props.id,
+                    "phone": props.phone
+                }),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+        console.log('done');
+        window.location.reload();
+        console.log('refreshed');
+    }
+
+
+    async function runnerr() {
+
+        setquant(parseInt(quant) - 1);
+
+        if (quant - 1 <= 0) {
+            deleteit();
+        }
+        else {
+            await fetch("http://localhost:3000/orders/update",
+                {
+                    method: "POST",
+                    body: JSON.stringify({
+                        "id": props.id,
+                        "phone": props.phone,
+                        "quantity": parseInt(quant) - 1
+                    }),
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                });
+        }
+
+
+    }
+    async function runnerp() {
+
+        setquant(parseInt(quant) + 1);
+        // console.log(parseInt(quant) + 1);
+
+
+        await fetch("http://localhost:3000/orders/update",
+            {
+                method: "POST",
+                body: JSON.stringify({
+                    "id": props.id,
+                    "phone": props.phone,
+                    "quantity": parseInt(quant) + 1
+                }),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+
+    }
     return (
         <>
-
-            <div class="outer">
-                <div class="container text-center">
-                    <div className="row">
-                    <div class="col-2 ok">
-                            <img className='img' src='/assets/siaLogo.jpg' ></img>
+{/* <div className="outer"> */}
+            <div class="container-sm text-center my-3">
+                <div className="row">
+                    <div class="col-2 imgCol">
+                        <img className='img' src='/assets/siaLogo.jpg' ></img>
 
                     </div>
-                        <div class="col-5 by">
-                            <div className="info">
-                                <h6 className="nam">product name,{"(product id)"}</h6>
-                                <p className="pric">price</p>
-                            </div>
+                    <div class="col-5 infoCol">
+                        <div className="info">
+                            <h6 className="nam">{(ob == null) ? null : ob.name}</h6>
+                            {/* <p>{(ob == null) ? null : ob.id}</p> */}
+                            <p className="pric">{(ob == null) ? null : ob.price+"/-"}</p>
                         </div>
-                    <div class="col-1 ">
-                        2 of 3 
                     </div>
-                        <div class="col-4 hi">
-                            <center className="numbr">
-                                quant
-                                <span className="material-symbols-outlined rm">remove</span>
-                                <span className="material-symbols-outlined add">add</span>
-                            </center>
-
-                            <span className="material-symbols-outlined dlt" >delete</span>
-                        </div>
-                </div>
-                </div>
-            </div>
-
-            <div className="outer">
-                <div className="left">
-                    
-                </div>
-                <div className="right">
-                    <div className="operation">
-
-
+                    {/* <div class="col-3 empty">
                         
 
+                    </div> */}
+                    <div class="col-5 quantCol">
+                        <div className="numbr">
+                            <icon className="material-symbols-outlined dlt" onClick={deleteit}>delete</icon>
+                            <icon onClick={runnerr} className="material-symbols-outlined rm">remove</icon>
+
+                            <span >{quant}</span>
+                            <icon onClick={runnerp} className="material-symbols-outlined add">add</icon>
+                        </div>
+
                     </div>
                 </div>
             </div>
+            {/* </div> */}
+
+
         </>
     )
 }
