@@ -89,13 +89,13 @@ export default function CartPageCart(props) {
     return (
         <>
 {/* <div className="outer"> */}
-            <div class="container-sm text-center my-3">
+            <div className="container-sm text-center my-3">
                 <div className="row">
-                    <div class="col-2 imgCol">
+                    <div className="col-2 imgCol">
                         <img className='img' src='/assets/siaLogo.jpg' ></img>
 
                     </div>
-                    <div class="col-5 infoCol">
+                    <div className="col-5 infoCol">
                         <div className="info">
                             <h6 className="nam">{(ob == null) ? null : ob.name}</h6>
                             {/* <p>{(ob == null) ? null : ob.id}</p> */}
@@ -106,13 +106,13 @@ export default function CartPageCart(props) {
                         
 
                     </div> */}
-                    <div class="col-5 quantCol">
+                    <div className="col-5 quantCol">
                         <div className="numbr">
-                            <icon className="material-symbols-outlined dlt" onClick={deleteit}>delete</icon>
-                            <icon onClick={runnerr} className="material-symbols-outlined rm">remove</icon>
+                            <span className="material-symbols-outlined dlt" onClick={deleteit}>delete</span>
+                            <span onClick={runnerr} className="material-symbols-outlined rm">remove</span>
 
                             <span >{quant}</span>
-                            <icon onClick={runnerp} className="material-symbols-outlined add">add</icon>
+                            <span onClick={runnerp} className="material-symbols-outlined add">add</span>
                         </div>
 
                     </div>

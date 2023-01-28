@@ -1,28 +1,17 @@
-.profileContainer{
-    height: auto;
-    width: 350px;
-    border: 2px solid rgb(206, 202, 202);
-    border-radius: 5px;
-    padding: 10px;
-    /* margin-top: 2%; */
-}
-#hding {
-    text-align: left;
-}
-#titl {
-    margin-top: 13px;
-    font-weight: bold;
-    text-align: left;
-    float: left;
-}
-.orderhead{
-    margin: 30px;
-    text-align: left;
-    
-}
+
 .allprofile{
     background-color: #d3d3d3e8;
     min-height: 700px;
-    padding: 2%;
+    padding: 5%;
     /* margin-top: 0px; */
+}
+
+
+.lf{
+    /* background-color: aqua; */
+    padding: 0px !important;
+}
+.rg{
+    /* background-color: brown; */
+    padding: 0px !important;
 }

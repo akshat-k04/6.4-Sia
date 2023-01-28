@@ -36,6 +36,10 @@ export default function OrderSummery() {
         if(subval==null|| subval==0){
             alert("cart is empty") ;
         }
+        else if(b.address==null || b.address.length==0){
+            alert("update the address") ;
+            navigate("/profile") ;
+        }
         else {
         Object.keys(data).map((e) => {
             indi = {

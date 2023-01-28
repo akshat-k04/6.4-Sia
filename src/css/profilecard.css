@@ -1,0 +1,16 @@
+.profile{
+    width: 18rem;
+}
+.bon{
+    background: black;
+    width: 100px;
+    height: 40px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    align-self: center;
+}
+.pd{
+    margin: 5px;
+    width: 270px;
+    align-self: center;
+}
