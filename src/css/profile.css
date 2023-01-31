@@ -1,17 +1,35 @@
 
-.allprofile{
+
+
+
+.fullpg{
     background-color: #d3d3d3e8;
     min-height: 700px;
     padding: 5%;
+    
     /* margin-top: 0px; */
 }
-
-
-.lf{
+.combined{
     /* background-color: aqua; */
-    padding: 0px !important;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: center;
+
 }
-.rg{
-    /* background-color: brown; */
-    padding: 0px !important;
+.right{
+    width: 60%;
+}
+@media screen and (max-width:884px){
+    .right{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:357px) {
+    .fullpg{
+        padding-left: 2%;
+        padding-right: 2%;
+        padding-top: 5%;
+    }
 }

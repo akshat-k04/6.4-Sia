@@ -1,43 +1,39 @@
-.loginphoto {
-    height: auto;
-    width: 80%;
-    border: 2px solid white;
-    border-radius: 5px;
-}
-.logincred{
-    height: auto;
-    width: 350px;
-    border: 2px solid rgb(206, 202, 202);
-    border-radius: 5px;
-    padding: 10px;
 
+
+
+
+
+.card {
+    width: 24rem;
+    border-radius: 20px !important;
 }
-#tt{
-    text-align: left;
+.lgin{
+    background-color: #d3d3d3e8;
+    padding: 50px;
 }
-#tte{
-    margin-top: 13px;
-    font-weight: bold;
-    text-align: left;
-    float: left;
+.pd{
+    margin-top: 8px ;
+    margin-bottom: 8px;
+    /* width: 250px; */
+    /* align-self: center; */
 }
-.buton{
-    border-radius: 5px;
-    background-color: #ec9ac7;
-    border: 1px solid rgb(228, 55, 202);
-    height: 38px;
-    width: 120px;
-    margin-top: 5px;
-    
+
+.img{
+    /* margin: 50px; */
+    align-self: center;
+    width: 75px;
 }
-.dividerline{
+
+
+.dividerline {
     margin-top: 15px;
     width: 75%;
     color: linear-gradient(to right, #0000ff, #FFFFFF);
 }
-.signup{
-    
-    color: rgb(228, 55, 202);
+
+.signup {
+
+    color: brown;
     text-decoration-line: none;
     text-align: center;
     width: 100%;
@@ -45,20 +41,42 @@
     height: 35px;
     margin-top: 5px;
 }
-.signupbuton{
-    height: auto;
-    width: 350px;
-    
-}
-.imgsize {
-    width: auto;
-    height: auto;
-    margin-bottom: 15px;
-}
 
-.forgetpass{
+.forgetpass {
     width: 100%;
     text-decoration-line: none;
-    color: rgb(228, 55, 202);
+    color: brown;
     margin-top: 10px;
+}
+
+@media  screen and (max-width:1111px) {
+    .card {
+            width: 18rem;
+        }
+                .pd {
+                    margin: 4px;
+                    width: 250px !important;
+                    align-self: center;
+                }
+}
+@media screen and (max-width:513px) {
+    .card {
+            width: 16rem;
+        }
+.pd {
+    margin: 4px;
+    width: 200px !important;
+    align-self: center;
+}
+}
+@media screen and (max-width:353px) {
+    .card {
+        width: 14rem;
+    }
+
+    .pd {
+        margin: 4px;
+        width: 160px !important;
+        align-self: center;
+    }
 }

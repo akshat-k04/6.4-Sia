@@ -1,4 +1,4 @@
-import React, { useContext,  useState,useEffect } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import phoneContext from '../context/phoneContext'
 import './../css/loginpage.css'
 import {
@@ -8,86 +8,79 @@ import profileContext from '../context/userProfileContext';
 
 
 export default function Loginpg() {
-  const a = useContext(phoneContext) ;
-  const b = useContext(profileContext) ;
-  const navigate = useNavigate() ;
-  const [phone , updatephone] = useState() ;
-  const[password ,updatepassword] =useState() ;
-
-  
-
+  const a = useContext(phoneContext);
+  const b = useContext(profileContext);
+  const navigate = useNavigate();
+  const [email, updateemail] = useState();
+  const [password, updatepassword] = useState();
+  const base = "https://siaback.onrender.com";
 
 
-  function rnphone(e){
-    updatephone(e.target.value) ;
-    
+
+
+
+  function rnphone(e) {
+    updateemail(e.target.value);
+
     //console.log(phone);
 
   }
-  function rnpassword(e){
-    updatepassword(e.target.value) ;
+  function rnpassword(e) {
+    updatepassword(e.target.value);
     //console.log(password);
 
   }
 
-  
-  async function checkino(){
-    
-    //console.log(phone+password);
-    
 
-    let res = await fetch("http://localhost:3000/auth/login", {
+  async function checkino() {
+
+    //console.log(phone+password);
+
+
+    let res = await fetch(`${base}/auth/login`, {
       method: "POST",
       body: JSON.stringify({
-        phone: phone,
+        email: email,
         password: password
-}),
+      }),
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "https://siaback.onrender.com"
       }
     });
-    let getdata = await res.json() ;
+    let getdata = await res.json();
     // console.log(getdata.bol);
     // console.log(password);
-    if(getdata.bol == "success"){
-      a.func(phone,true) ;
-      b.func(phone) ;
-      localStorage.setItem('phone',phone) ;
+    if (getdata.bol == "success") {
+      a.func(email, true);
+      b.func(email);
+      localStorage.setItem('email',email);
       //console.log(goahead+goahead);
-     window.alert('login successfully') ;
+      window.alert('login successfully');
       navigate('/')
-
     }
-    else if(getdata.bol=="fail"){
-      window.alert('wrong password') ;
+    else if (getdata.bol == "fail") {
+      window.alert('wrong password');
     }
-    else{
-      alert('user not exist') ;
+    else {
+      alert('user not exist');
     }
   }
 
   return (
-    <center>
-      <div className="loginphoto">
-        <img src='/assets/siaLogo.jpg' alt='sia logo' className='imgsize'></img>
-      </div>
-      <div className="logincred">
-        <h2 className='txt' id="tt">Sign in</h2>
-        <div className="mb-3">
-
-
-          <label  id="tte" >Phone number</label>
-          <input type="phone" className="form-control "  onChange={rnphone} id="exampleFormControlInput1" placeholder="9876543210" />
-
-
-          <label id='tte' >password</label>
-          <input type="password" className="form-control" onInput={rnpassword}  placeholder="Password"></input>
-
-            <button type='button' onClick={checkino} className="buton">submit</button>
-
+    <center className='lgin'>
+      <div className="card" >
+        <img src='/assets/siaLogo.jpg' className="card-img-top img" alt="..." />
+        <div className="card-body">
+          <h5 className="card-title">Login Credentials</h5>
+          <input type="email" className="form-control pd" onChange={rnphone}  placeholder="email address" />
+          <input type="password" className="form-control pd" onInput={rnpassword}  placeholder="password" />
+          {/* <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> */}
+          <button onClick={checkino} className="btn btn-primary">Login</button>
           <Link type='button' className="forgetpass" to="/auth/forgetpassword">Forget Password</Link>
         </div>
       </div>
+      
       <hr className='dividerline' />
 
       <div className="signupbuton">
@@ -95,7 +88,7 @@ export default function Loginpg() {
         <Link type='button' className="signup" to="../auth/signup">create your account</Link>
       </div>
     </center>
-    
-    
+
+
   )
 }

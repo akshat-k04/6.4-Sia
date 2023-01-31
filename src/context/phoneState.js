@@ -2,12 +2,12 @@ import { useState } from "react";
 import phoneContext from "./phoneContext";
 
 const Phonestate =(props)=>{
-    const [phone, updateit] = useState({ 'number': "", "showDetails":false}) ;
-    function func (phon,shw){
-        updateit({ "number": phon,"showDetails":shw}) ;
+    const [email, updateit] = useState({ 'email': "", "showDetails":false}) ;
+    function func (email,shw){
+        updateit({ "email": email,"showDetails":shw}) ;
     }
     return(
-        <phoneContext.Provider value={{phone,func}}>
+        <phoneContext.Provider value={{email,func}}>
             {props.children}
         </phoneContext.Provider>
     )

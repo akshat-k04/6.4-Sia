@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import './../css/OrderCard.css'
 
 export default function OrdersCard(props) {
+  const base = "https://siaback.onrender.com";
+
     const [showDetails , srt] = useState(false) ;
     function st(){
         if(showDetails){
@@ -16,7 +19,7 @@ export default function OrdersCard(props) {
         <tr>
             <th scope="row">{parseInt(props.num)+1}</th>
             {console.log(props.order)}
-              <td><Link onClick={st}>{props.order.orderId}</Link></td>
+        <td ><Link className='signup' onClick={st}>{props.order.orderId}</Link></td>
             <td>{props.order.date}</td>
             <td>{props.order.status}</td>
         </tr>
@@ -30,7 +33,7 @@ export default function OrdersCard(props) {
                   <th scope="col">Product Id</th>
                   <th scope="col">Quantity</th>
                   <th scope="col">price</th>
-                  <th scope="col">Total</th>
+                  <th className='sizin' scope="col">Total</th>
                 </tr>
               </thead>
               <tbody>
@@ -41,23 +44,30 @@ export default function OrdersCard(props) {
                     <td scope="row">{props.order.productDetails[element].id}</td>
                     <td>{props.order.productDetails[element].quantity}</td>
                     <td>{props.order.productDetails[element].price}</td>
-                    <td>{parseInt(props.order.productDetails[element].quantity) * parseInt(props.order.productDetails[element].price)}</td>
+                    <td className='sizin'>{parseInt(props.order.productDetails[element].quantity) * parseInt(props.order.productDetails[element].price)}</td>
                   </tr>
                 })}
                 <tr>
-                <td scope="row" colSpan={3}>Shipping Charge</td>
+                <td scope="row" colSpan={2}>Shipping Charge</td>
+                  <td className='sizin'></td>
+
                 <td>{(props.order.delivery =="delivery")?"100" : "0"}</td>
                 </tr>
                 <tr>
-                  <td scope='row' colSpan={3}>GRAND TOTAL</td>
+                  <td scope='row' colSpan={2}>GRAND TOTAL</td>
+                  <td className='sizin'></td>
+
                 <td>{(props.order.delivery == "delivery") ? `${parseInt(props.order.grandTotal) + 100}` : props.order.grandTotal}</td>
                 </tr>
                 <tr>
-                  <td scope='row' colSpan={3}>delivery type</td>
+                  <td scope='row' colSpan={2}>delivery type</td>
+                  <td className='sizin'></td>
                   <td>{props.order.delivery}</td>
                 </tr>
                 <tr>
-                  <td scope='row' colSpan={3}>payment mode</td>
+                  <td scope='row' colSpan={2}>payment mode</td>
+                  <td className='sizin'></td>
+
                   <td>{props.order.payment}</td>
                 </tr>
               </tbody>

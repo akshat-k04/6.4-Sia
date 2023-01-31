@@ -10,26 +10,28 @@ export default function CartPage() {
   const b = useContext(profileContext);
   const [obj, setobj] = useState();
   const navigate = useNavigate();
+  const base = "https://siaback.onrender.com";
 
 
   useEffect(() => {
-    if (localStorage.getItem('phone') != null) {
-      a.func(localStorage.getItem('phone'), true);
-      b.func(localStorage.getItem('phone'));
+    if (localStorage.getItem('email') != null) {
+      a.func(localStorage.getItem('email'), true);
+      b.func(localStorage.getItem('email'));
       // navigate('/');
 
 
     }
 
     async function fc() {
-      let data = await fetch("http://localhost:3000/orders/cart",
+      let data = await fetch(`${base}/orders/cart`,
         {
           method: "POST",
           body: JSON.stringify({
-            "phone": (localStorage.getItem('phone') == null) ? a.phone.number : localStorage.getItem('phone')
+            "email": (localStorage.getItem('email') == null) ? a.email.email : localStorage.getItem('email')
           }),
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "https://siaback.onrender.com"
           }
         });
       let gh = await data.json();
@@ -58,7 +60,7 @@ export default function CartPage() {
           <div className='underline'><hr /></div>
         {(obj == null || obj.length==0) ? <h4>cart is empty</h4> : Object.keys(obj).map((element) => {
           // return <div className='col-6 mx  my-0.1' key={obj[element].id}>
-          return <CartPageCart id={obj[element].id} key={obj[element].id} quantity={obj[element].quantity} phone={obj[element].phone} />
+          return <CartPageCart id={obj[element].id} key={obj[element].id} quantity={obj[element].quantity} email={obj[element].email} />
           // </div>
         })}
         {/* </div> */}
@@ -68,22 +70,31 @@ export default function CartPage() {
 
             <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
               <div class="carousel-inner">
-                <div class="carousel-item active" data-bs-interval="1000">
-                  <img src="./assets/9.jpg" height={500} class="cart d-block w-100" alt="..." />
+                <div class="carousel-item active" data-bs-interval="5000">
+                  <img src="./assets/1-3.jpg" height={500} class="cart d-block w-100" alt="..." />
                 </div>
-                
-                <div class="carousel-item" data-bs-interval="1000">
-                  <img src="./assets/10.jpg" height={500} class=" cart d-block w-100" alt="..." />
+      
+                <div class="carousel-item" data-bs-interval="5000">
+                  <img src="./assets/3-4.jpg" height={500} class=" cart d-block w-100" alt="..." />
+                </div>
+                <div class="carousel-item" data-bs-interval="5000">
+                  <img src="./assets/5.png" height={500} class=" cart d-block w-100" alt="..." />
+                </div>
+                <div class="carousel-item" data-bs-interval="5000">
+                  <img src="./assets/6.png" height={500} class=" cart d-block w-100" alt="..." />
+                </div>
+                <div class="carousel-item" data-bs-interval="5000">
+                  <img src="./assets/7.png" height={500} class=" cart d-block w-100" alt="..." />
                 </div>
               </div>
-              {/* <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
               </button>
               <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
-              </button> */}
+              </button>
             </div>
 
 

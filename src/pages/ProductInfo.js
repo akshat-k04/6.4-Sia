@@ -8,17 +8,20 @@ export default function ProductInfo() {
     const a = useContext(phoneContext);
     const navigate = useNavigate();
     const [img, setImg] = useState();
+    const base = "https://siaback.onrender.com";
+
     useEffect(() => {
         //console.log(b.itemInfo);
         async function fc() {
-            let data = await fetch("http://localhost:3000/owner/findimg",
+            let data = await fetch(`${base}/owner/findimg`,
                 {
                     method: "POST",
                     body: JSON.stringify({
                         "url": b.itemInfo.imageurl
                     }),
                     headers: {
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
+                        "Access-Control-Allow-Origin": "https://siaback.onrender.com"
                     }
                 });
             const imageBlob = await data.blob();
@@ -30,18 +33,19 @@ export default function ProductInfo() {
 
 
     async function addtoCart() {
-        if (a.phone.number.length === 10) {
+        if (a.email.email.length !== 0) {
             let dataset = {
-                'phone': a.phone.number,
+                'email': a.email.email,
                 'quantity': 1,
                 'id': b.itemInfo.id,
                 'price': b.itemInfo.price
             }
-            let res = await fetch("http://localhost:3000/orders/addToCart", {
+            let res = await fetch(`${base}/orders/addToCart`, {
                 method: "POST",
                 body: JSON.stringify(dataset),
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "Access-Control-Allow-Origin": "https://siaback.onrender.com"
                 }
             });
             let obj = await res.json();

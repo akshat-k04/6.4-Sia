@@ -14,6 +14,8 @@ export default function OrderSummery() {
     const [subval, seval] = useState() ;
     const [orderType, setType] = useState("takeAway") ;
     const [payMode, moder] = useState("UPI") ;
+    const base = "https://siaback.onrender.com";
+
     function change(e){
         moder(e.target.value) ;
         // console.log(payMode);
@@ -52,8 +54,8 @@ export default function OrderSummery() {
         })
         
         let info ={
-            "orderId": `${ localStorage.getItem('phone')}${ Date().toString().slice(1,24) }`,
-            "phone": `${localStorage.getItem('phone') }` ,
+            "orderId": `${ localStorage.getItem('email')}${ Date().toString().slice(1,24) }`,
+            "email": `${localStorage.getItem('email') }` ,
             "productDetails": details ,
             "delivery":orderType ,
             "payment":payMode ,
@@ -62,12 +64,13 @@ export default function OrderSummery() {
             "grandTotal": subval
         }
         
-        let daa = await fetch("http://localhost:3000/confirm/addOrder",
+            let daa = await fetch(`${base}/confirm/addOrder`,
             {
                 method: "POST",
                 body: JSON.stringify(info),
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "Access-Control-Allow-Origin": "https://siaback.onrender.com"
                 }
             });
         let dat = await daa.json();
@@ -76,12 +79,13 @@ export default function OrderSummery() {
         
         Object.keys(data).map(async(e) => {
 
-            await fetch("http://localhost:3000/orders/delete",
+            await fetch(`${base}/orders/delete`,
                 {
                     method: "POST",
                     body: JSON.stringify(data[e]),
                     headers: {
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
+                        "Access-Control-Allow-Origin": "https://siaback.onrender.com"
                     }
                 });
         });
@@ -96,21 +100,22 @@ export default function OrderSummery() {
     }
     }
     useEffect(()=>{
-        if (localStorage.getItem('phone') != null) {
-            a.func(localStorage.getItem('phone'), true);
-            b.func(localStorage.getItem('phone'));
+        if (localStorage.getItem('email') != null) {
+            a.func(localStorage.getItem('email'), true);
+            b.func(localStorage.getItem('email'));
             // navigate('/');
 
         }
         async function fc() {
-            let data = await fetch("http://localhost:3000/orders/cart",
+            let data = await fetch(`${base}/orders/cart`,
                 {
                     method: "POST",
                     body: JSON.stringify({
-                        "phone": localStorage.getItem('phone') 
+                        "email": localStorage.getItem('email') 
                     }),
                     headers: {
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
+                        "Access-Control-Allow-Origin": "https://siaback.onrender.com"
                     }
                 });
             let gh = await data.json();

@@ -1,16 +1,20 @@
 import React, { useState } from 'react'
 import {Link, useNavigate} from 'react-router-dom'
+import './../css/loginpage.css'
+
 export default function Forgetpassword() {
     const navigate = useNavigate() ;
     const[enableotp ,changer] =useState(false) ;
-    const[phone ,phoner] = useState("");
+    const[email ,setemail] = useState("");
     const[otp,otper] = useState() ;
     const [password,psser]=useState("") ;
     
     const[showpass,maker] = useState(false) ;
     const[disABLE,ler] = useState(false) ;
+    const base = "https://siaback.onrender.com";
+
     function runphone(e){
-        phoner(e.target.value) ;
+        setemail(e.target.value) ;
     }
     function runotp (e){
         otper(e.target.value) ;
@@ -22,15 +26,16 @@ export default function Forgetpassword() {
 
     async function otpsender() {
         let dataset = ({
-            phone: phone
+            "email": email
         })
+        console.log(dataset);
 
-
-        let res = await fetch("http://localhost:3000/auth/userchecker", {
+        let res = await fetch(`${base}/auth/userchecker`, {
             method: "POST",
             body: JSON.stringify(dataset),
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "https://siaback.onrender.com"
             }
         });
         let getdata = await res.json();
@@ -39,14 +44,40 @@ export default function Forgetpassword() {
             changer(true);
             ler(true) ;
             //TODO:- write code to send otp
+            let os = await fetch(`${base}/otp/send`, {
+                method: "POST",
+                body: JSON.stringify(dataset),
+                headers: {
+                    "Content-Type": "application/json",
+                    "Access-Control-Allow-Origin": "https://siaback.onrender.com"
+                }
+            });
+            const rs = await os.json();
+            if (rs.bol === "done") {
+                alert("otp sended");
+            }
         }
         else {
             alert('user not exist') ;
         }
     }
-    function checkotp(){
+    async function checkotp(){
         //TODO:- write code to check otp then update the otpvarifier
-        if(otp.length==5){
+        let rt = await fetch(`${base}/otp/varify`, {
+            method: "POST",
+            body: JSON.stringify({
+                
+                "email": email,
+                "otp": otp
+            }),
+            headers: {
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "https://siaback.onrender.com"
+            }
+        });
+
+        const rp = await rt.json()
+        if (rp.bol == "varified") {
             maker(true);
         }
         
@@ -57,16 +88,17 @@ export default function Forgetpassword() {
     async function updatePass(){
         if(password.length!==0){
             let dataset = ({
-                phone: phone,
+                "email": email,
                 password:password
             })
 
 
-            let res = await fetch("/auth/forgetPassword", {
+            let res = await fetch(`${base}/auth/forgetPassword`, {
                 method: "POST",
                 body: JSON.stringify(dataset),
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "Access-Control-Allow-Origin": "https://siaback.onrender.com"
                 }
             });
             let getdata = await res.json();
@@ -80,26 +112,23 @@ export default function Forgetpassword() {
         else{
             alert('enter password') ;
         }
+        
     }
   return (
 
-      <center>
-          <div className="loginphoto">
-              <img src='/assets/siaLogo.jpg' alt='sia logo' className='imgsize'></img>
-          </div>
-          <div className="logincred">
-              <h2 className='txt' id="tt">Recover your password</h2>
-              <div className="mb-3">
+      <center className='lgin'>
+          <div className="card" >
+              <img src='/assets/siaLogo.jpg' className="card-img-top img" alt="..." />
+              <div className="card-body">
+                  <h5 className="card-title">Recover Your Password</h5>
+                  {(disABLE) ? <input type="email" className="form-control pd" id="exampleFormControlInput1" disabled /> : <input type="email" className="form-control pd" onChange={runphone} id="exampleFormControlInput1" placeholder="email address" />}
+                  {(enableotp) ? (showpass) ? <input type="password" className="form-control pd" value={password} onChange={runpass} id="exampleFormControlInput1" placeholder="password" /> : <input type="OTP" className="form-control pd" onChange={runotp} id="exampleFormControlInput1" placeholder="OTP" /> : null} 
 
+                  {/* <input type="otp" className="form-control pd"  id="zi" placeholder="otp" /> */}
+                  {/* <button  className="btn btn-primary">Get OTP</button> */}
+                  <button type='button' onClick={(enableotp) ? (showpass) ? updatePass : checkotp : otpsender} className="btn btn-primary">{(enableotp) ? (showpass) ? "Update it!" : 'submit' : 'get OTP'}</button>
 
-                  <label id="tte" >Phone number</label>
-                  {(disABLE) ? <input type="phone" className="form-control " id="exampleFormControlInput1" disabled />:<input type="phone" className="form-control " onChange={runphone} id="exampleFormControlInput1" placeholder="9876543210" />}
-
-
-                  <label id="tte" >{(enableotp) ? (showpass) ?"password":"OTP":null}</label>
-                  {(enableotp) ? (showpass) ? <input type="password" className="form-control " onChange={runpass} id="exampleFormControlInput1" placeholder="password" />: <input type="phone" className="form-control " onChange={runotp} id="exampleFormControlInput1" placeholder="567890"  />:null} 
-                  {/* <input type="phone" className="form-control " onChange={runotp} id="exampleFormControlInput1" placeholder="9876543210" ></input> */}
-                  <button type='button' onClick={(enableotp)?(showpass)?updatePass:checkotp:otpsender} className="buton">{(enableotp) ?(showpass)?"update": 'submit' : 'get OTP'}</button>
+                  
               </div>
           </div>
           <hr className='dividerline' />
@@ -107,6 +136,7 @@ export default function Forgetpassword() {
           <div className="signupbuton">
               <label >E-mail support:<Link type='button' className="signup">kakshat35@gmail.com</Link></label>
           </div>
+         
       </center>
 
   )

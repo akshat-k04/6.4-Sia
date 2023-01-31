@@ -7,10 +7,23 @@
 }
 .home{
     background-color:#d3d3d3e8 ;
+    padding-bottom: 50px;
     /* rgba(243, 179, 214, 0.733); */
 }
+.aftercarousel{
+    padding: 10px;
+}
+.covercard{
+    margin: 20px;
 
-@media screen and (min-width:1236px) {
+}
+.cardrow{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 80px;
+    justify-content: center;
+}
+/* @media screen and (min-width:1236px) {
     .cardrow {
             padding-left: 5%;
             padding-right: 5%;
@@ -18,4 +31,4 @@
             padding-top: 3%;
     
         }
-}
+} */

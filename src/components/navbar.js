@@ -10,7 +10,10 @@ export default function Navbar() {
     const a = useContext(phoneContext) ;
     const b = useContext(profileContext) ;
     const cata = useContext(cataContext) ;
+    const firstname = (b.name==null|| b.name.length==0)?"":b.name.split(" ")[0] ;
     const navigate = useNavigate();
+    const base = "https://siaback.onrender.com";
+
     function signout(){
         a.func("" , false) ;
         b.func("") ;
@@ -29,13 +32,13 @@ export default function Navbar() {
     
   return (
       <>
-          <nav className="navbar navbar-expand-lg  bg-body-tertiary bg-nv">
+          <nav className="navbar navbar-dark navbar-expand-lg  bg-body-tertiary bg-nv">
               <div className="container-fluid">
                   <Link className="navbar-brand  text-white" onClick={gohome}>Sia</Link>
-                  <button className="navbar-toggler icon-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                      <span className="navbar-toggler-icon "></span>
+                  <button className="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span className="navbar-toggler-icon"></span>
                   </button>
-                  <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                  <div className="collapse navbar-collapse " id="navbarSupportedContent">
                       
                       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                       </ul>
@@ -62,13 +65,13 @@ export default function Navbar() {
                           </li>
                           
                       <li className="nav-item">
-                          <Link to={(!a.phone.showDetails) ? '/auth/login' : '/basket'} className="nav-link active  text-white"   >Basket</Link>
+                          <Link to={(!a.email.showDetails) ? '/auth/login' : '/basket'} className="nav-link active  text-white"   >Basket</Link>
                       </li>
                       <li className="nav-item">
-                          <Link to={(!a.phone.showDetails) ? '/auth/login' : '/profile'} className="nav-link active  text-white"  >Profile</Link>
+                          <Link to={(!a.email.showDetails) ? '/auth/login' : '/profile'} className="nav-link active  text-white"  >Profile</Link>
                       </li>
                       <li className="nav-item">
-                          <Link className="nav-link active  text-white" onClick={signout} to={(a.phone.showDetails) ? "/" : "/auth/login"}>{(a.phone.showDetails) ? "sign out" : "login"}</Link>
+                          <Link className="nav-link active  text-white" onClick={signout} to={(a.email.showDetails) ? "/" : "/auth/login"}>{(a.email.showDetails) ? "hello_"+firstname : "login"}</Link>
                       </li>
                       </ul>
 

@@ -7,18 +7,20 @@ export default function CartRow(props) {
     // const navigate= useNavigate();
     const [ob, setobj] = useState("");
     const [quant, setquant] = useState(props.quantity);
+    const base = "https://siaback.onrender.com";
 
     useEffect(() => {
         // console.log(props.id);
         async function fc() {
-            let data = await fetch("http://localhost:3000/owner/detail",
+            let data = await fetch(`${base}/owner/detail`,
                 {
                     method: "POST",
                     body: JSON.stringify({
                         "id": props.id
                     }),
                     headers: {
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
+                        "Access-Control-Allow-Origin": "https://siaback.onrender.com"
                     }
                 });
 
@@ -29,15 +31,16 @@ export default function CartRow(props) {
     }, []);
 
     async function deleteit() {
-        await fetch("http://localhost:3000/orders/delete",
+        await fetch(`${base}/orders/delete`,
             {
                 method: "POST",
                 body: JSON.stringify({
                     "id": props.id,
-                    "phone": props.phone
+                    "email": props.email
                 }),
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "Access-Control-Allow-Origin": "https://siaback.onrender.com"
                 }
             });
         console.log('done');
@@ -54,16 +57,17 @@ export default function CartRow(props) {
                 deleteit();
             }
             else {
-                await fetch("http://localhost:3000/orders/update",
+                await fetch(`${base}/orders/update`,
                     {
                         method: "POST",
                         body: JSON.stringify({
                             "id": props.id,
-                            "phone": props.phone,
+                            "email": props.email,
                             "quantity": parseInt(quant)-1
                         }),
                         headers: {
-                            "Content-Type": "application/json"
+                            "Content-Type": "application/json",
+                            "Access-Control-Allow-Origin": "https://siaback.onrender.com"
                         }
                     });
             }
@@ -76,16 +80,17 @@ export default function CartRow(props) {
         // console.log(parseInt(quant) + 1);
 
        
-            await fetch("http://localhost:3000/orders/update",
+        await fetch(`${base}/orders/update`,
                 {
                     method: "POST",
                     body: JSON.stringify({
                         "id": props.id,
-                        "phone": props.phone,
+                        "email": props.email,
                         "quantity": parseInt(quant)  + 1
                     }),
                     headers: {
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
+                        "Access-Control-Allow-Origin": "https://siaback.onrender.com"
                     }
                 });
 

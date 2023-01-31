@@ -2,17 +2,22 @@ import { useState } from "react";
 import profileContext from "./userProfileContext";
 
 const ProfileState = (props) => {
+    const base = "https://siaback.onrender.com";
+
     const [name ,upname] = useState("");
     const [address, upaddress] = useState("");
     const [phone, upphone] = useState("");
     const [zip,upzip]=useState("") ;
+    const [email ,setemail] = useState("") ;
     const [previousOrders , setOrders] = useState() ;
-    async function func(phon) {
-        let res = await fetch("http://localhost:3000/auth/getdata", {
+    async function func(email) {
+        let res = await fetch(`${base}/auth/getdata`, {
             method: "POST",
-            body: JSON.stringify({"phone":phon}),
+            body: JSON.stringify({"email":email}),
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "https://siaback.onrender.com"
+
             }
         });
 
@@ -23,12 +28,12 @@ const ProfileState = (props) => {
         upphone(rs.phone) ;
         upaddress(rs.address) ;
         upzip(rs.zip) ;
-
+        setemail(rs.email) ;
 
         // this is for order
-        let wes = await fetch("http://localhost:3000/confirm/seeorder", {
+        let wes = await fetch(`${base}/confirm/seeorder`, {
             method: "POST",
-            body: JSON.stringify({ "phone": phon }),
+            body: JSON.stringify({ "email": email }),
             headers: {
                 "Content-Type": "application/json"
             }
@@ -37,7 +42,7 @@ const ProfileState = (props) => {
         setOrders(ws) ;
     }
     return (
-        <profileContext.Provider value={{ name,address,phone,zip,previousOrders, func }}>
+        <profileContext.Provider value={{ name,address,phone,zip,previousOrders,email , func }}>
             {props.children}
         </profileContext.Provider>
     )

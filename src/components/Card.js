@@ -12,18 +12,20 @@ export default function Card(props) {
   let desci = props.description ;
   const [img, setImg] = useState();
   const nevigate = useNavigate() ;
+  const base = "https://siaback.onrender.com";
   useEffect(() => {async function fc() {
     //console.log(props.imageurl);
     
 
 
-    let data = await fetch("http://localhost:3000/owner/findimg", 
+    let data = await fetch(`${base}/owner/findimg`, 
     { method: "POST", 
       body: JSON.stringify({
         "url": props.imageurl
       }) ,
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "https://siaback.onrender.com"
       }
   });
     const imageBlob = await data.blob();
@@ -35,18 +37,19 @@ export default function Card(props) {
 
 
     async function addToCart() {
-      if(c.phone.number.length===10){
+      if(c.email.email.length!==0){
         let dataset = {
-          'phone': c.phone.number,
+          'email': c.email.email,
           'quantity': 1,
           'id':props.id,
           'price':props.price
         }
-        let res = await fetch("http://localhost:3000/orders/addToCart", {
+        let res = await fetch(`${base}/orders/addToCart`, {
           method: "POST",
           body: JSON.stringify(dataset),
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "https://siaback.onrender.com"
           }
         });
         let obj = await res.json();
@@ -73,14 +76,13 @@ export default function Card(props) {
     //   nevigate('/auth/login');
     // }
   }
-
   return (
     <>
-          <div className="card mx-5 my-3">
+          <div className="card homecard">
         <img src={img} className="card-img-top" onClick={navigateit}  alt={props.id}/>
                   <div className="card-body">
                       <h4 className="card-title">{props.name}</h4>
-                      <p  className="card-text">{(desci.length>140)?desci.slice(0,139)+"...":desci}</p>
+                      <p  className="card-text">{(desci.length>119)?desci.slice(0,119)+"...":desci}</p>
                       <p className='price'>{props.price}/-</p>
                       <button onClick={addToCart} className="addbtn ">Add To Cart</button>
                   </div>

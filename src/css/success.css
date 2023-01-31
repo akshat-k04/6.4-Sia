@@ -1,9 +1,49 @@
-.tp {
-    background-color: #d3d3d3e8;
-    min-height: 600px;
-    padding-top: 150px;
+
+.cardsuccess{
+    width: 20rem ;
 }
-.tpt{
-    background-color: #d3d3d3e8;
+.fullpg{
+background-color: #d3d3d3e8;
     min-height: 600px;
+}
+.ig{
+    padding: 0px;
+    margin: 2rem;
+    width: 16rem;
+    height: 16rem;
+    border-radius: 0px !important;
+}
+.padd{
+    margin: 20px;
+}
+@media screen and (max-width:1111px) {
+    .cardsuccess{
+        width: 18rem;
+        
+    }
+    .ig{
+        margin: 1rem;
+    }
+}
+@media screen and (max-width:513px) {
+    .ig {
+            margin: 1rem;
+            width: 14rem;
+            height: 14rem;
+        }
+                .cardsuccess {
+                    width: 16rem;
+                    
+                }
+}
+@media screen and (max-width:354px) {
+    .ig {
+            margin: 1rem;
+            width: 12rem;
+            height: 12rem;
+        }
+                .cardsuccess {
+                    width: 14rem;
+                    
+                }
 }

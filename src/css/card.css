@@ -1,9 +1,10 @@
-.card,.card-img-top{
+.homecard,.card-img-top{
     border-radius: 20px !important;
     
 }
-/* .card{
-    /* width: 320px !important; */
+.homecard{
+    width: 20rem !important;
+}
 
 .price{
     font-weight: bold;
@@ -16,10 +17,13 @@
     border-radius: 5px !important;
     align-self: center;
 }
+ .card-text {
+     height: 80px;
+ }
 
-@media screen and (min-width:1133px){
-    .card-text {
-        height: 80px;
+@media screen and (max-width:1250px){
+    .homecard{
+        width: 17rem !important;
     }
 }
 

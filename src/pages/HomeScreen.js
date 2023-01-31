@@ -14,22 +14,25 @@ export default function HomeScreen() {
     const a = useContext(phoneContext);
     const b = useContext(profileContext);
     const cata = useContext(cataContext) ;
+    const base = "https://siaback.onrender.com";
+
     // const navigate = useNavigate() ;
     useEffect(()=>{async function fc () {
-            if (localStorage.getItem('phone') != null) {
-                a.func(localStorage.getItem('phone'), true);
-                b.func(localStorage.getItem('phone'));
+            if (localStorage.getItem('email') != null) {
+                a.func(localStorage.getItem('email'), true);
+                b.func(localStorage.getItem('email'));
                 // navigate('/');
 
             }
         
-        let data = await fetch("http://localhost:3000/owner/find", {
+        let data = await fetch(`${base}/owner/find`, {
             method: "POST",
             body: JSON.stringify(
                 {"catagory":cata.query}
             ),
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "https://siaback.onrender.com"
             }
         });
         let parsedata = await data.json();
@@ -40,17 +43,16 @@ export default function HomeScreen() {
     <div className='home'>
     
     <Carousel/>
-    <center>
-              <div className='row cardrow'>
+    <center className='aftercarousel'>
+              <center className='cardrow'>
               {(article.length==0)?<EmptyPage/>:Object.keys(article).map((element) => {
-                  return <div className='col-md-4 my-3' key={article[element].id}>
+                  return <div className='covercard' key={article[element].id}>
                       {/* {console.log(article[element])} */}
                       <Card name={article[element].name} id={article[element].id} description={article[element].description} imageurl={article[element].imageurl} type={article[element].type} price={article[element].price} quantity={article[element].quantity} />
                   </div>
               })}
               
-        
-                </div>
+                </center>
           </center>
     </div>
   )
